@@ -1,0 +1,84 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+}
+
+model items {
+  id                  String   @id @default(uuid()) @db.Uuid
+  nama_barang         String   @db.VarChar(255)
+  deskripsi           String?
+  harga_sewa_per_hari Int
+  stok                Int      @default(1)
+  pemilik_id          String   @db.Uuid
+  lokasi              String?  @default("Tidak Diketahui") @db.VarChar(255)
+  createdAt           DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt           DateTime @updatedAt @db.Timestamptz(6)
+}
+
+model messages {
+  id           String   @id @default(uuid()) @db.Uuid
+  id_transaksi String   @db.VarChar(255)
+  pengirim     String?  @db.VarChar(255)
+  pesan        String
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(6)
+}
+
+model reviews {
+  id           String   @id @default(uuid()) @db.Uuid
+  item_id      String   @db.Uuid
+  penyewa_id   String   @db.Uuid
+  id_transaksi String   @db.VarChar(255)
+  rating       Int
+  komentar     String?
+  createdAt    DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt    DateTime @updatedAt @db.Timestamptz(6)
+}
+
+model transactions {
+  id                  String   @id @default(uuid()) @db.Uuid
+  penyewa_id          String   @db.Uuid
+  item_id             String   @db.Uuid
+  tanggal_mulai       DateTime @db.Timestamptz(6)
+  tanggal_selesai     DateTime @db.Timestamptz(6)
+  total_harga         Int
+  jaminan_deposit     Int
+  status_transaksi    String?  @default("menunggu_pembayaran") @db.VarChar(255)
+  status_deposit      String?  @default("ditahan") @db.VarChar(255)
+  persen_kerusakan    Int?     @default(0)
+  denda_kerusakan     Int?     @default(0)
+  denda_keterlambatan Int?     @default(0)
+  jumlah_refund       Int?     @default(0)
+  createdAt           DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt           DateTime @updatedAt @db.Timestamptz(6)
+}
+
+model users {
+  id             String                 @id @default(uuid()) @db.Uuid
+  nama           String                 @db.VarChar(255)
+  email          String                 @unique @db.VarChar(255)
+  password       String                 @db.VarChar(255)
+  role           enum_users_role        @default(user)
+  status_kyc     enum_users_status_kyc? @default(unverified)
+  foto_ktp       String?                @db.VarChar(255)
+  latitude       Float?
+  longitude      Float?
+  alamat_lengkap String?
+  createdAt      DateTime               @default(now()) @db.Timestamptz(6)
+  updatedAt      DateTime               @updatedAt @db.Timestamptz(6)
+}
+
+enum enum_users_role {
+  user
+  admin
+}
+
+enum enum_users_status_kyc {
+  unverified
+  pending
+  verified
+  rejected
+}
