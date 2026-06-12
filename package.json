@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "dev": "nodemon server.js",
-    "setup": "node scripts/create-db.js"
+    "setup": "node scripts/create-db.js",
+    "postinstall": "prisma generate"
   },
   "keywords": [],
   "author": "",
