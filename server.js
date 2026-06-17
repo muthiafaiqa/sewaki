@@ -10,7 +10,7 @@ const prisma = require('./src/shared/config/prisma');
 // ==============================
 const server = http.createServer(app);
 const io = new Server(server, {
-    cors: { origin: '[https://sewaki-frontend.up.railway.app](https://sewaki-frontend.up.railway.app)', methods: ['GET', 'POST'] }
+    cors: { origin: '[https://sewa-sewaki.up.railway.app](https://sewa-sewaki.up.railway.app)', methods: ['GET', 'POST'] }
 });
 
 // Socket.IO Events (Real-time Chat)
