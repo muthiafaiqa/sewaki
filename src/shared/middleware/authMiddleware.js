@@ -31,4 +31,36 @@ const verifyToken = (req, res, next) => {
     }
 };
 
+const verifyAdmin = (req, res, next) => {
+    if (req.user && req.user.role === 'admin') {
+        next();
+    } else {
+        return res.status(403).json({
+            success: false,
+            message: 'Akses ditolak. Hanya Admin yang diizinkan!'
+        });
+    }
+};
+
+const checkRole = (allowedRoles) => {
+    return (req, res, next) => {
+        if (!req.user) {
+            return res.status(401).json({
+                success: false,
+                message: 'Akses ditolak. Token tidak ditemukan atau tidak valid!'
+            });
+        }
+        if (!allowedRoles.includes(req.user.role)) {
+            return res.status(403).json({
+                success: false,
+                message: 'Akses ditolak. Peran Anda tidak diizinkan!'
+            });
+        }
+        next();
+    };
+};
+
+verifyToken.verifyAdmin = verifyAdmin;
+verifyToken.checkRole = checkRole;
+
 module.exports = verifyToken;

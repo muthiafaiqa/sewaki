@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
 
 // Import semua routes dari modul
 const authRoutes = require('./modules/auth/auth.routes');
@@ -8,17 +9,20 @@ const transactionRoutes = require('./modules/transaction/transaction.routes');
 const paymentRoutes = require('./modules/payment/payment.routes');
 const notificationRoutes = require('./modules/notification/notification.routes');
 const chatRoutes = require('./modules/chat/chat.routes');
+const reviewRoutes = require('./modules/review/review.routes');
+const dashboardRoutes = require('./modules/dashboard/dashboard.routes');
+const adminRoutes = require('./modules/admin/admin.routes');
 
 const app = express();
+
+// Serve static files untuk upload KTP
+app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
 // ==============================
 // MIDDLEWARE GLOBAL
 // ==============================
 app.use(cors());
 app.use(express.json());
-
-// Serve static files untuk upload KTP
-app.use('/uploads', express.static('uploads'));
 
 // ==============================
 // HEALTH CHECK
@@ -48,6 +52,9 @@ app.use('/api/transactions', transactionRoutes);
 app.use('/api/payments', paymentRoutes);
 app.use('/api/notifications', notificationRoutes);
 app.use('/api/chats', chatRoutes);
+app.use('/api/reviews', reviewRoutes);
+app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/admin', adminRoutes);
 
 // ==============================
 // 404 HANDLER

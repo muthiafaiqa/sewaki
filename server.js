@@ -58,8 +58,14 @@ prisma.$connect()
             console.log(`   POST   /api/auth/register`);
             console.log(`   POST   /api/auth/login`);
             console.log(`   GET    /api/auth/profile`);
+            console.log(`   POST   /api/auth/upload-ktp`);
+            console.log(`   GET    /api/auth/kyc-list`);
+            console.log(`   PUT    /api/auth/verify-kyc/:id`);
+            console.log(`   PUT    /api/auth/reject-kyc/:id`);
             console.log(`   GET    /api/items`);
+            console.log(`   GET    /api/items/:id`);
             console.log(`   POST   /api/items`);
+            console.log(`   DELETE /api/items/:id`);
             console.log(`   POST   /api/transactions`);
             console.log(`   PUT    /api/transactions/return/:id`);
             console.log(`   POST   /api/payments/create-invoice`);

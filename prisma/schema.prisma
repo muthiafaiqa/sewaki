@@ -14,8 +14,11 @@ model items {
   stok                Int      @default(1)
   pemilik_id          String   @db.Uuid
   lokasi              String?  @default("Tidak Diketahui") @db.VarChar(255)
+  foto_barang         String?  @db.VarChar(255)
+  deposit             Int?     @default(0)
   createdAt           DateTime @default(now()) @db.Timestamptz(6)
   updatedAt           DateTime @updatedAt @db.Timestamptz(6)
+  transactions        transactions[]
 }
 
 model messages {
@@ -46,14 +49,20 @@ model transactions {
   tanggal_selesai     DateTime @db.Timestamptz(6)
   total_harga         Int
   jaminan_deposit     Int
+  biaya_admin         Int      @default(0)
   status_transaksi    String?  @default("menunggu_pembayaran") @db.VarChar(255)
   status_deposit      String?  @default("ditahan") @db.VarChar(255)
   persen_kerusakan    Int?     @default(0)
   denda_kerusakan     Int?     @default(0)
   denda_keterlambatan Int?     @default(0)
   jumlah_refund       Int?     @default(0)
-  createdAt           DateTime @default(now()) @db.Timestamptz(6)
-  updatedAt           DateTime @updatedAt @db.Timestamptz(6)
+  createdAt             DateTime @default(now()) @db.Timestamptz(6)
+  updatedAt             DateTime @updatedAt @db.Timestamptz(6)
+  item                  items    @relation(fields: [item_id], references: [id])
+  bank_deposit          String?
+  rekening_deposit      String?
+  nama_rekening_deposit String?
+  bukti_pengembalian    String?  @db.VarChar(255)
 }
 
 model users {
@@ -67,6 +76,7 @@ model users {
   latitude       Float?
   longitude      Float?
   alamat_lengkap String?
+  nomor_hp       String?                @db.VarChar(255)
   createdAt      DateTime               @default(now()) @db.Timestamptz(6)
   updatedAt      DateTime               @updatedAt @db.Timestamptz(6)
 }
@@ -74,6 +84,7 @@ model users {
 enum enum_users_role {
   user
   admin
+  pemilik
 }
 
 enum enum_users_status_kyc {
@@ -81,4 +92,13 @@ enum enum_users_status_kyc {
   pending
   verified
   rejected
+}
+
+model notifications {
+  id         String   @id @default(uuid()) @db.Uuid
+  user_id    String   @db.Uuid
+  title      String   @db.VarChar(255)
+  message    String
+  is_read    Boolean  @default(false)
+  created_at DateTime @default(now()) @db.Timestamptz(6)
 }

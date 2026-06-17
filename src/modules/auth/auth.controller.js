@@ -9,7 +9,7 @@ require('dotenv').config();
 // ====================================================
 exports.register = async (req, res) => {
     try {
-        const { nama, email, password } = req.body;
+        const { nama, email, password, role, nomor_hp } = req.body;
 
         // Cek apakah email sudah terdaftar
         const existingUser = await prisma.users.findUnique({
@@ -27,8 +27,9 @@ exports.register = async (req, res) => {
                 nama,
                 email,
                 password: hashedPassword,
-                role: 'user',
-                status_kyc: 'unverified'
+                role: role || 'user',
+                status_kyc: 'unverified',
+                nomor_hp: nomor_hp || null
             }
         });
 

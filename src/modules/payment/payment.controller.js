@@ -1,6 +1,7 @@
 const { Xendit } = require('xendit-node');
 const axios = require('axios');
 const { sendEmail } = require('../notification/notification.service');
+const prisma = require('../../shared/config/prisma');
 require('dotenv').config();
 
 const secret = process.env.XENDIT_SECRET_KEY || 'xnd_development_slLr35crraIL1yek6HHSOhDJvEfH5FneTWDYYLhw6kNbV9aiEsujCsnWgWJt';
@@ -38,41 +39,39 @@ exports.createInvoice = async (req, res) => {
 // ==========================================
 exports.webhook = async (req, res) => {
     try {
-        const { external_id, status, payer_email, amount } = req.body;
-
-        console.log(`\n🔔 BEEP! Ada pemberitahuan masuk dari Xendit!`);
-        console.log(`Transaksi ID: ${external_id}, Status: ${status}`);
+        const { external_id, status } = req.body;
 
         if (status === 'PAID') {
-            console.log(`✅ Uang masuk ke Rekber SewaKi'.`);
-
-            // 🔥 Direct function call — ganti axios.put ke transaction-service
             try {
-                const { payTransaction } = require('../transaction/transaction.service');
-                await payTransaction(external_id);
-                console.log(`✅ Status transaksi ${external_id} berhasil diupdate menjadi 'dibayar'.`);
-            } catch (err) {
-                console.error(`❌ Gagal update status transaksi:`, err.message);
-            }
+                const updatedTransaction = await prisma.transactions.update({
+                    where: { id: external_id },
+                    data: {
+                        status_transaksi: 'dibayar'
+                    },
+                    include: {
+                        item: true
+                    }
+                });
 
-            // 🔥 Direct function call — ganti fetch ke notification-service
-            if (payer_email) {
-                try {
-                    await sendEmail({
-                        email_tujuan: payer_email,
-                        judul: '🧾 Pembayaran Berhasil (Sewa + Deposit) - SewaKi\'',
-                        isi_pesan: `Halo,\n\nPembayaran Kamu untuk Transaksi ID: ${external_id} sebesar Rp ${amount} telah BERHASIL kami verifikasi.\n\nStatus: LUNAS (Biaya Sewa & Deposit Berhasil Diamankan).\n\nSilakan cek aplikasi untuk melihat detail barang dan hubungi pemilik barang untuk mengatur penjemputan.\n\nTerima kasih telah menggunakan SewaKi'!`
+                if (updatedTransaction && updatedTransaction.item) {
+                    await prisma.notifications.create({
+                        data: {
+                            user_id: updatedTransaction.item.pemilik_id,
+                            title: 'Pembayaran Berhasil',
+                            message: 'Pesanan baru telah dibayar. Segera siapkan barang untuk penyerahan.'
+                        }
                     });
-                    console.log(`📡 Email pembayaran sukses dikirim ke: ${payer_email}`);
-                } catch (emailErr) {
-                    console.error('Peringatan: Gagal mengirim email notifikasi pembayaran:', emailErr.message);
                 }
+            } catch (err) {
+                console.error('Error updating transaction (invalid ID format):', err.message);
+                return res.status(400).json({ success: false, message: "Invalid transaction ID format" });
             }
         }
 
-        res.status(200).json({ success: true, message: 'Webhook berhasil diterima' });
+        return res.status(200).send('OK');
     } catch (error) {
-        res.status(500).json({ success: false, message: 'Gagal memproses webhook' });
+        console.error('Webhook error:', error);
+        return res.status(500).json({ message: 'Gagal memproses webhook' });
     }
 };
 
@@ -133,5 +132,71 @@ exports.disburse = async (req, res) => {
             message: 'Gagal melakukan pencairan dana',
             error_detail: error.response?.data?.message || 'Terjadi kesalahan sistem'
         });
+    }
+};
+
+// ==========================================
+// RUTE 4: Pengembalian Deposit (Disbursement)
+// ==========================================
+exports.disburseDeposit = async (req, res) => {
+    try {
+        const { id_transaksi } = req.body;
+
+        if (!id_transaksi) {
+            return res.status(400).json({ success: false, message: 'id_transaksi wajib diisi!' });
+        }
+
+        // Ambil data transaksi dari database
+        const transaction = await prisma.transactions.findUnique({
+            where: { id: id_transaksi }
+        });
+
+        if (!transaction) {
+            return res.status(404).json({ success: false, message: 'Transaksi tidak ditemukan!' });
+        }
+
+        const { bank_deposit, rekening_deposit, nama_rekening_deposit, jaminan_deposit } = transaction;
+
+        // Jika ada data rekening yang kosong/null di database, kembalikan res.status(400)
+        if (!bank_deposit || !rekening_deposit || !nama_rekening_deposit) {
+            return res.status(400).json({
+                success: false,
+                message: 'Data rekening deposit tidak lengkap di database!'
+            });
+        }
+
+        const secretKeyWithColon = secret + ':';
+        const base64Key = Buffer.from(secretKeyWithColon).toString('base64');
+
+        const response = await axios.post('https://api.xendit.co/disbursements', {
+            external_id: `disb-${id_transaksi}-${Date.now()}`,
+            amount: parseInt(jaminan_deposit, 10),
+            bank_code: bank_deposit,
+            account_number: rekening_deposit,
+            account_holder_name: nama_rekening_deposit,
+            description: `Pengembalian Uang Deposit Transaksi ${id_transaksi}`
+        }, {
+            headers: {
+                'Authorization': `Basic ${base64Key}`,
+                'Content-Type': 'application/json'
+            }
+        });
+
+        const xenditData = response.data;
+
+        if (xenditData.status === 'PENDING' || xenditData.status === 'COMPLETED') {
+            await prisma.transactions.update({
+                where: { id: id_transaksi },
+                data: {
+                    status_deposit: 'dikembalikan'
+                }
+            });
+            return res.status(200).json({ success: true, message: 'Deposit berhasil dicairkan' });
+        }
+
+        return res.status(400).json({ success: false, message: 'Disbursement gagal di Xendit', data: xenditData });
+    } catch (error) {
+        console.error(error);
+        return res.status(500).json({ message: error.message || 'Terjadi kesalahan di server' });
     }
 };

@@ -33,7 +33,9 @@ router.get('/profile', verifyToken, authController.getProfile);
 router.post('/upload-ktp', upload.single('ktp'), kycController.uploadKtp);
 
 // Admin: update status KYC
-router.put('/verify-kyc/:id', kycController.verifyKyc);
+router.get('/kyc-list', verifyToken, verifyToken.verifyAdmin, kycController.getKycList);
+router.put('/verify-kyc/:id', verifyToken, verifyToken.verifyAdmin, kycController.verifyKyc);
+router.put('/reject-kyc/:id', verifyToken, verifyToken.verifyAdmin, kycController.rejectKyc);
 
 // Update lokasi user
 router.put('/:id/lokasi', authController.updateLokasi);

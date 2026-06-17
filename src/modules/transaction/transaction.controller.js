@@ -1,16 +1,29 @@
 const prisma = require('../../shared/config/prisma');
 const { payTransaction } = require('./transaction.service');
 const { reduceStock, restoreStock } = require('../item/item.service');
+const { Xendit } = require('xendit-node');
+
+const xenditSecret = process.env.XENDIT_SECRET_KEY || 'xnd_development_slLr35crraIL1yek6HHSOhDJvEfH5FneTWDYYLhw6kNbV9aiEsujCsnWgWJt';
+const xenditClient = new Xendit({ secretKey: xenditSecret });
 
 // 1. Buat transaksi baru
 exports.createTransaction = async (req, res) => {
     try {
-        const { item_id, tanggal_mulai, tanggal_selesai, total_harga, jaminan_deposit } = req.body;
+        const { item_id, tanggal_mulai, tanggal_selesai, total_harga, jaminan_deposit, biaya_admin, bank_deposit, rekening_deposit, nama_rekening_deposit } = req.body;
         const penyewa_id = req.headers['x-user-id'];
 
         if (!penyewa_id || !item_id || !tanggal_mulai || !tanggal_selesai || !total_harga || !jaminan_deposit) {
             return res.status(400).json({ success: false, message: 'Semua data transaksi wajib diisi!' });
         }
+
+        // Dapatkan email penyewa
+        const tenant = await prisma.users.findUnique({
+            where: { id: penyewa_id }
+        });
+        if (!tenant) {
+            return res.status(404).json({ success: false, message: 'Penyewa tidak ditemukan!' });
+        }
+        const email_penyewa = tenant.email;
 
         // 🔥 Direct function call
         try {
@@ -20,23 +33,48 @@ exports.createTransaction = async (req, res) => {
             return res.status(status).json({ success: false, message: itemError.message });
         }
 
+        const hargaSewa = parseInt(total_harga, 10) || 0;
+        const deposit = parseInt(jaminan_deposit, 10) || 0;
+        const biayaAdmin = parseInt(biaya_admin, 10) || 0;
+        const calculatedTotalHarga = hargaSewa + deposit + biayaAdmin;
+
         const newTransaction = await prisma.transactions.create({
             data: {
                 penyewa_id,
                 item_id,
                 tanggal_mulai: new Date(tanggal_mulai),
                 tanggal_selesai: new Date(tanggal_selesai),
-                total_harga: parseInt(total_harga, 10),
-                jaminan_deposit: parseInt(jaminan_deposit, 10),
+                total_harga: calculatedTotalHarga,
+                jaminan_deposit: deposit,
+                biaya_admin: biayaAdmin,
                 status_transaksi: 'menunggu_pembayaran',
-                status_deposit: 'ditahan'
+                status_deposit: 'ditahan',
+                persen_kerusakan: 0,
+                denda_kerusakan: 0,
+                denda_keterlambatan: 0,
+                jumlah_refund: 0,
+                bank_deposit,
+                rekening_deposit,
+                nama_rekening_deposit
+            }
+        });
+
+        // Buat Invoice Xendit
+        const invoiceResponse = await xenditClient.Invoice.createInvoice({
+            data: {
+                externalId: newTransaction.id,
+                amount: calculatedTotalHarga,
+                description: 'Pembayaran Sewa Barang',
+                payerEmail: email_penyewa,
+                invoiceDuration: 86400
             }
         });
 
         res.status(201).json({
             success: true,
             message: 'Transaksi berhasil dibuat & Stok barang dipotong!',
-            data: newTransaction
+            data: newTransaction,
+            invoice_url: invoiceResponse.invoiceUrl
         });
     } catch (error) {
         console.error(error);
@@ -47,7 +85,11 @@ exports.createTransaction = async (req, res) => {
 // 2. Lihat semua riwayat transaksi
 exports.getAllTransactions = async (req, res) => {
     try {
-        const transactions = await prisma.transactions.findMany();
+        const transactions = await prisma.transactions.findMany({
+            include: {
+                item: true
+            }
+        });
         res.status(200).json({ success: true, data: transactions });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server' });
@@ -97,6 +139,19 @@ exports.returnItem = async (req, res) => {
             }
         });
 
+        // Kirim notifikasi ke penyewa
+        try {
+            await prisma.notifications.create({
+                data: {
+                    user_id: transaction.penyewa_id,
+                    title: 'Transaksi Selesai',
+                    message: 'Barang telah dikembalikan ke pemilik dan status depositmu telah diperbarui. Terima kasih telah menyewa!'
+                }
+            });
+        } catch (notifErr) {
+            console.error('Peringatan: Gagal membuat notifikasi transaksi selesai:', notifErr.message);
+        }
+
         res.status(200).json({
             success: true,
             message: 'Barang berhasil dikembalikan!',
@@ -104,5 +159,146 @@ exports.returnItem = async (req, res) => {
         });
     } catch (error) {
         res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server transaksi' });
+    }
+};
+
+// 5. Ambil riwayat transaksi penyewa (my-rentals)
+exports.getMyRentals = async (req, res) => {
+    try {
+        const penyewa_id = req.user.id;
+
+        const transactions = await prisma.transactions.findMany({
+            where: {
+                penyewa_id: penyewa_id
+            },
+            include: {
+                item: true
+            },
+            orderBy: {
+                createdAt: 'desc'
+            }
+        });
+
+        res.status(200).json(transactions);
+    } catch (error) {
+        console.error('Error fetching my-rentals:', error);
+        res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server transaksi' });
+    }
+};
+
+// 6. Selesaikan transaksi dan hitung denda otomatis
+exports.completeTransaction = async (req, res) => {
+    try {
+        const { id } = req.params;
+        const { persen_kerusakan, denda_keterlambatan } = req.body;
+
+        const transaction = await prisma.transactions.findUnique({
+            where: { id },
+            include: { item: true }
+        });
+
+        if (!transaction) {
+            return res.status(404).json({ success: false, message: 'Transaksi tidak ditemukan' });
+        }
+
+        if (transaction.status_transaksi !== 'menunggu_inspeksi') {
+            return res.status(400).json({ success: false, message: 'Transaksi belum diverifikasi bukti pengembalian' });
+        }
+
+        const harga_barang = transaction.item.harga_sewa_per_hari;
+        const persenKerusakanInt = parseInt(persen_kerusakan, 10) || 0;
+        const dendaKeterlambatanInt = parseInt(denda_keterlambatan, 10) || 0;
+
+        const denda_kerusakan = Math.round((persenKerusakanInt / 100) * harga_barang);
+        
+        let jumlah_refund = transaction.jaminan_deposit - denda_kerusakan - dendaKeterlambatanInt;
+        if (jumlah_refund < 0) {
+            jumlah_refund = 0;
+        }
+
+        const updatedTransaction = await prisma.transactions.update({
+            where: { id },
+            data: {
+                status_transaksi: 'selesai',
+                status_deposit: 'dikembalikan',
+                persen_kerusakan: persenKerusakanInt,
+                denda_kerusakan: denda_kerusakan,
+                denda_keterlambatan: dendaKeterlambatanInt,
+                jumlah_refund: jumlah_refund
+            }
+        });
+
+        // Kembalikan stok barang
+        await prisma.items.update({
+            where: { id: transaction.item_id },
+            data: {
+                stok: {
+                    increment: 1
+                }
+            }
+        });
+
+        // Kirim notifikasi ke penyewa
+        try {
+            await prisma.notifications.create({
+                data: {
+                    user_id: transaction.penyewa_id,
+                    title: 'Transaksi Selesai',
+                    message: 'Barang telah dikembalikan ke pemilik dan status depositmu telah diperbarui. Terima kasih telah menyewa!'
+                }
+            });
+        } catch (notifErr) {
+            console.error('Peringatan: Gagal membuat notifikasi transaksi selesai:', notifErr.message);
+        }
+
+        res.status(200).json({
+            success: true,
+            message: 'Transaksi berhasil diselesaikan',
+            data: updatedTransaction
+        });
+
+    } catch (error) {
+        console.error('Error completing transaction:', error);
+        res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server saat menyelesaikan transaksi' });
+    }
+};
+
+// 7. Pengajuan bukti pengembalian barang
+exports.submitReturnProof = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        if (!req.file) {
+            return res.status(400).json({ success: false, message: 'Harap upload bukti pengembalian terlebih dahulu!' });
+        }
+
+        const transaction = await prisma.transactions.findUnique({
+            where: { id }
+        });
+
+        if (!transaction) {
+            return res.status(404).json({ success: false, message: 'Transaksi tidak ditemukan' });
+        }
+
+        if (transaction.status_transaksi !== 'dibayar') {
+            return res.status(400).json({ success: false, message: 'Transaksi tidak dalam status dibayar / aktif' });
+        }
+
+        const updatedTransaction = await prisma.transactions.update({
+            where: { id },
+            data: {
+                status_transaksi: 'menunggu_inspeksi',
+                bukti_pengembalian: req.file.filename
+            }
+        });
+
+        res.status(200).json({
+            success: true,
+            message: 'Bukti pengembalian berhasil diajukan, status berubah menjadi menunggu_inspeksi',
+            data: updatedTransaction
+        });
+    } catch (error) {
+        console.error('Error submitting return proof:', error);
+        res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server saat mengajukan bukti pengembalian' });
     }
 };
