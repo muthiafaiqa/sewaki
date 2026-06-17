@@ -21,7 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 // ==============================
 // MIDDLEWARE GLOBAL
 // ==============================
-app.use(cors());
+app.use(cors({ origin: 'https://sewaki-frontend.up.railway.app' }));
 app.use(express.json());
 
 // ==============================
