@@ -1,0 +1,262 @@
+{
+  "nodes": [
+    {
+      "id": "readme_sewaki_monolith_architecture",
+      "label": "SewaKi Modular Monolith Architecture",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_tech_stack",
+      "label": "SewaKi Tech Stack",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_database",
+      "label": "SewaKi Database (Sequelize & PostgreSQL)",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_microservices_migration",
+      "label": "SewaKi Microservices to Monolith Migration Rationale",
+      "file_type": "rationale",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_auth_module",
+      "label": "SewaKi Auth Module",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_item_module",
+      "label": "SewaKi Item Module",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_transaction_module",
+      "label": "SewaKi Transaction Module",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_payment_module",
+      "label": "SewaKi Payment Module (Xendit Integration)",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_notification_module",
+      "label": "SewaKi Notification Module (Nodemailer)",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "readme_sewaki_chat_module",
+      "label": "SewaKi Chat Module (Socket.IO)",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "claudemd_sewaki_development_rules",
+      "label": "SewaKi Development and Graphify Rules",
+      "file_type": "document",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\CLAUDE.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "workflows_graphify_workflow",
+      "label": "Graphify Workflow",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\.agents\\workflows\\graphify.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    },
+    {
+      "id": "graphify_skill_definition",
+      "label": "Graphify Skill Definition",
+      "file_type": "concept",
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\.agents\\skills\\graphify\\SKILL.md",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null
+    }
+  ],
+  "edges": [
+    {
+      "source": "readme_sewaki_microservices_migration",
+      "target": "readme_sewaki_monolith_architecture",
+      "relation": "rationale_for",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_auth_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_item_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_transaction_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_payment_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_notification_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_chat_module",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_tech_stack",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "readme_sewaki_monolith_architecture",
+      "target": "readme_sewaki_database",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\README.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "claudemd_sewaki_development_rules",
+      "target": "readme_sewaki_monolith_architecture",
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\CLAUDE.md",
+      "source_location": null,
+      "weight": 1.0
+    },
+    {
+      "source": "workflows_graphify_workflow",
+      "target": "graphify_skill_definition",
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "C:\\laragon\\www\\sewaki-monolith\\.agents\\workflows\\graphify.md",
+      "source_location": null,
+      "weight": 1.0
+    }
+  ],
+  "hyperedges": [],
+  "input_tokens": 1500,
+  "output_tokens": 800
+}

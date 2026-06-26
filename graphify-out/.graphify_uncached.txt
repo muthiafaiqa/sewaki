@@ -1,0 +1,13 @@
+C:\laragon\www\sewaki-monolith\.agents\rules\graphify.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\SKILL.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\add-watch.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\exports.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\extraction-spec.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\github-and-merge.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\hooks.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\query.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\transcribe.md
+C:\laragon\www\sewaki-monolith\.agents\skills\graphify\references\update.md
+C:\laragon\www\sewaki-monolith\.agents\workflows\graphify.md
+C:\laragon\www\sewaki-monolith\CLAUDE.md
+C:\laragon\www\sewaki-monolith\README.md

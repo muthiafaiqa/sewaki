@@ -41,9 +41,10 @@ exports.createItem = async (req, res) => {
 exports.getAllItems = async (req, res) => {
     try {
         const { search } = req.query;
-        const where = search 
-            ? { nama_barang: { contains: search, mode: 'insensitive' } } 
-            : {};
+        const where = {
+            is_active: true,
+            ...(search ? { nama_barang: { contains: search, mode: 'insensitive' } } : {})
+        };
 
         const items = await prisma.items.findMany({ where });
         res.status(200).json({ success: true, data: items });
@@ -125,16 +126,17 @@ exports.deleteItem = async (req, res) => {
     try {
         const { id } = req.params;
 
-        const item = await prisma.items.findUnique({
-            where: { id }
+        const item = await prisma.items.findFirst({
+            where: { id, is_active: true }
         });
 
         if (!item) {
             return res.status(404).json({ success: false, message: 'Barang tidak ditemukan!' });
         }
 
-        await prisma.items.delete({
-            where: { id }
+        await prisma.items.update({
+            where: { id },
+            data: { is_active: false }
         });
 
         res.status(200).json({ success: true, message: 'Barang berhasil dihapus!' });

@@ -62,6 +62,17 @@ exports.verifyKyc = async (req, res) => {
             }
         });
 
+        // Buat notifikasi baru untuk user
+        await prisma.notifications.create({
+            data: {
+                user_id: id,
+                title: status === 'verified' ? 'Verifikasi KTP Berhasil' : 'Verifikasi KTP Ditolak',
+                message: status === 'verified'
+                    ? 'Selamat! Akun Anda telah berhasil diverifikasi. Sekarang Anda dapat melakukan penyewaan barang.'
+                    : 'Mohon maaf, verifikasi KTP Anda ditolak oleh admin. Silakan periksa kembali foto KTP Anda dan lakukan upload ulang.'
+            }
+        });
+
         res.status(200).json({
             success: true,
             message: `Verifikasi KTP untuk ${updatedUser.nama} (${updatedUser.role}) BERHASIL di-update menjadi: ${status.toUpperCase()}!`,
@@ -121,6 +132,15 @@ exports.rejectKyc = async (req, res) => {
             where: { id },
             data: {
                 status_kyc: 'rejected'
+            }
+        });
+
+        // Buat notifikasi baru untuk user
+        await prisma.notifications.create({
+            data: {
+                user_id: id,
+                title: 'Verifikasi KTP Ditolak',
+                message: 'Mohon maaf, verifikasi KTP Anda ditolak oleh admin. Silakan periksa kembali foto KTP Anda dan lakukan upload ulang.'
             }
         });
 
