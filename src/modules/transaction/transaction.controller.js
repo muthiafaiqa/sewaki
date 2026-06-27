@@ -10,19 +10,45 @@ const xenditClient = new Xendit({ secretKey: xenditSecret });
 exports.createTransaction = async (req, res) => {
     try {
         const { item_id, tanggal_mulai, tanggal_selesai, total_harga, jaminan_deposit, biaya_admin, bank_deposit, rekening_deposit, nama_rekening_deposit } = req.body;
-        const penyewa_id = req.headers['x-user-id'];
+        const penyewa_id = req.headers['x-user-id'] || req.user?.id;
 
         if (!penyewa_id || !item_id || !tanggal_mulai || !tanggal_selesai || !total_harga || !jaminan_deposit) {
             return res.status(400).json({ success: false, message: 'Semua data transaksi wajib diisi!' });
         }
 
-        // Dapatkan email penyewa
+        // Dapatkan data penyewa
         const tenant = await prisma.users.findUnique({
             where: { id: penyewa_id }
         });
         if (!tenant) {
             return res.status(404).json({ success: false, message: 'Penyewa tidak ditemukan!' });
         }
+
+        // 1. Validasi Hak Akses Role (Hanya user dengan role renter/user biasa yang diizinkan)
+        const userRole = (tenant.role || req.user?.role || '').toLowerCase();
+        if (userRole === 'pemilik' || userRole === 'owner') {
+            return res.status(403).json({
+                success: false,
+                message: 'Akun Pemilik Barang tidak diizinkan untuk melakukan penyewaan'
+            });
+        }
+
+        // Dapatkan data barang untuk pengecekan pemilik
+        const item = await prisma.items.findUnique({
+            where: { id: item_id }
+        });
+        if (!item) {
+            return res.status(404).json({ success: false, message: 'Barang tidak ditemukan!' });
+        }
+
+        // 2. Validasi Pemilik Menyewa Barang Sendiri
+        if (item.pemilik_id === penyewa_id) {
+            return res.status(400).json({
+                success: false,
+                message: 'Anda tidak dapat menyewa barang milik Anda sendiri'
+            });
+        }
+
         const email_penyewa = tenant.email;
 
         // 🔥 Direct function call
@@ -179,9 +205,151 @@ exports.getMyRentals = async (req, res) => {
             }
         });
 
-        res.status(200).json(transactions);
+        // Cek auto-expiry dan pasang invoice_url jika menunggu pembayaran
+        const updatedTransactions = await Promise.all(transactions.map(async (tx) => {
+            const timeDiff = Date.now() - new Date(tx.createdAt).getTime();
+            if (tx.status_transaksi === 'menunggu_pembayaran' && timeDiff > 86400000) {
+                // Update status ke expired
+                const updatedTx = await prisma.transactions.update({
+                    where: { id: tx.id },
+                    data: {
+                        status_transaksi: 'expired'
+                    },
+                    include: {
+                        item: true
+                    }
+                });
+
+                // Pulihkan stok barang
+                try {
+                    await restoreStock(tx.item_id);
+                } catch (stockErr) {
+                    console.error('Failed to restore stock on expiry:', stockErr);
+                }
+                return updatedTx;
+            }
+
+            // Tambahkan invoice_url jika menunggu pembayaran
+            if (tx.status_transaksi === 'menunggu_pembayaran') {
+                let invoice_url = null;
+                try {
+                    const invoices = await xenditClient.Invoice.getInvoices({ externalId: tx.id });
+                    if (invoices && invoices.length > 0) {
+                        invoice_url = invoices[0].invoiceUrl;
+                    } else {
+                        // Recreate invoice if not found or expired in Xendit Staging
+                        const userObj = await prisma.users.findUnique({
+                            where: { id: tx.penyewa_id }
+                        });
+                        const payerEmail = userObj?.email || 'renter@example.com';
+                        
+                        const newInvoice = await xenditClient.Invoice.createInvoice({
+                            data: {
+                                externalId: tx.id,
+                                amount: tx.total_harga,
+                                description: 'Pembayaran Sewa Barang (Recreated)',
+                                payerEmail: payerEmail,
+                                invoiceDuration: 86400
+                            }
+                        });
+                        invoice_url = newInvoice.invoiceUrl;
+                    }
+                } catch (xenditErr) {
+                    console.error('Error fetching invoice from Xendit:', xenditErr);
+                }
+                return {
+                    ...tx,
+                    invoice_url
+                };
+            }
+
+            return tx;
+        }));
+
+        res.status(200).json(updatedTransactions);
     } catch (error) {
         console.error('Error fetching my-rentals:', error);
+        res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server transaksi' });
+    }
+};
+
+// Ambil detail satu transaksi by ID dengan auto-expiry check
+exports.getTransactionById = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        let transaction = await prisma.transactions.findUnique({
+            where: { id },
+            include: {
+                item: true
+            }
+        });
+
+        if (!transaction) {
+            return res.status(404).json({ success: false, message: 'Data transaksi tidak ditemukan!' });
+        }
+
+        // Cek apakah transaksi sudah kedaluwarsa (24 jam)
+        const timeDiff = Date.now() - new Date(transaction.createdAt).getTime();
+        if (transaction.status_transaksi === 'menunggu_pembayaran' && timeDiff > 86400000) {
+            // Update status ke expired
+            transaction = await prisma.transactions.update({
+                where: { id },
+                data: {
+                    status_transaksi: 'expired'
+                },
+                include: {
+                    item: true
+                }
+            });
+
+            // Pulihkan stok barang
+            try {
+                await restoreStock(transaction.item_id);
+            } catch (stockErr) {
+                console.error('Failed to restore stock on expiry:', stockErr);
+            }
+        }
+
+        // Dapatkan invoice URL jika transaksi menunggu pembayaran
+        let invoice_url = null;
+        if (transaction.status_transaksi === 'menunggu_pembayaran') {
+            try {
+                const invoices = await xenditClient.Invoice.getInvoices({ externalId: transaction.id });
+                if (invoices && invoices.length > 0) {
+                    invoice_url = invoices[0].invoiceUrl;
+                } else {
+                    // Recreate invoice if not found or expired in Xendit Staging
+                    const userObj = await prisma.users.findUnique({
+                        where: { id: transaction.penyewa_id }
+                    });
+                    const payerEmail = userObj?.email || 'renter@example.com';
+                    
+                    const newInvoice = await xenditClient.Invoice.createInvoice({
+                        data: {
+                            externalId: transaction.id,
+                            amount: transaction.total_harga,
+                            description: 'Pembayaran Sewa Barang (Recreated)',
+                            payerEmail: payerEmail,
+                            invoiceDuration: 86400
+                        }
+                    });
+                    invoice_url = newInvoice.invoiceUrl;
+                }
+            } catch (xenditErr) {
+                console.error('Error fetching invoice from Xendit:', xenditErr);
+            }
+        }
+
+        res.status(200).json({
+            success: true,
+            data: {
+                ...transaction,
+                invoice_url
+            }
+        });
+    } catch (error) {
+        console.error('Error getting transaction:', error);
         res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server transaksi' });
     }
 };

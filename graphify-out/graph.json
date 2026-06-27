@@ -150,7 +150,7 @@
       "source_location": "L16",
       "_origin": "ast",
       "id": "package_dependencies",
-      "community": 24,
+      "community": 4,
       "norm_label": "dependencies"
     },
     {
@@ -160,7 +160,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "package_dependencies_prisma_adapter_pg",
-      "community": 24,
+      "community": 4,
       "norm_label": "@prisma/adapter-pg"
     },
     {
@@ -170,7 +170,7 @@
       "source_location": "L18",
       "_origin": "ast",
       "id": "package_dependencies_prisma_client",
-      "community": 24,
+      "community": 4,
       "norm_label": "@prisma/client"
     },
     {
@@ -180,7 +180,7 @@
       "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_axios",
-      "community": 24,
+      "community": 4,
       "norm_label": "axios"
     },
     {
@@ -190,7 +190,7 @@
       "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_bcrypt",
-      "community": 24,
+      "community": 4,
       "norm_label": "bcrypt"
     },
     {
@@ -200,7 +200,7 @@
       "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_cors",
-      "community": 24,
+      "community": 4,
       "norm_label": "cors"
     },
     {
@@ -210,7 +210,7 @@
       "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_dotenv",
-      "community": 24,
+      "community": 4,
       "norm_label": "dotenv"
     },
     {
@@ -220,7 +220,7 @@
       "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_express",
-      "community": 24,
+      "community": 4,
       "norm_label": "express"
     },
     {
@@ -230,7 +230,7 @@
       "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_jsonwebtoken",
-      "community": 24,
+      "community": 4,
       "norm_label": "jsonwebtoken"
     },
     {
@@ -240,7 +240,7 @@
       "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_multer",
-      "community": 24,
+      "community": 4,
       "norm_label": "multer"
     },
     {
@@ -250,7 +250,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_nodemailer",
-      "community": 24,
+      "community": 4,
       "norm_label": "nodemailer"
     },
     {
@@ -260,7 +260,7 @@
       "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_pg",
-      "community": 24,
+      "community": 4,
       "norm_label": "pg"
     },
     {
@@ -270,7 +270,7 @@
       "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_socket_io",
-      "community": 24,
+      "community": 4,
       "norm_label": "socket.io"
     },
     {
@@ -280,7 +280,7 @@
       "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_xendit_node",
-      "community": 24,
+      "community": 4,
       "norm_label": "xendit-node"
     },
     {
@@ -510,7 +510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server",
-      "community": 2,
+      "community": 3,
       "norm_label": "server.js"
     },
     {
@@ -520,7 +520,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "server_http",
-      "community": 2,
+      "community": 3,
       "norm_label": "http"
     },
     {
@@ -530,7 +530,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_server",
-      "community": 2,
+      "community": 3,
       "norm_label": "{ server }"
     },
     {
@@ -540,7 +540,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "server_app",
-      "community": 2,
+      "community": 3,
       "norm_label": "app"
     },
     {
@@ -550,7 +550,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_prisma",
-      "community": 2,
+      "community": 3,
       "norm_label": "prisma"
     },
     {
@@ -560,7 +560,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "server_io",
-      "community": 2,
+      "community": 3,
       "norm_label": "io"
     },
     {
@@ -732,6 +732,26 @@
       "id": "admin_admin_controller_getadminrevenue",
       "community": 12,
       "norm_label": "getadminrevenue()"
+    },
+    {
+      "label": "getDisputes()",
+      "file_type": "code",
+      "source_file": "src/modules/admin/admin.controller.js",
+      "source_location": "L26",
+      "_origin": "ast",
+      "id": "admin_admin_controller_getdisputes",
+      "community": 12,
+      "norm_label": "getdisputes()"
+    },
+    {
+      "label": "resolveDispute()",
+      "file_type": "code",
+      "source_file": "src/modules/admin/admin.controller.js",
+      "source_location": "L75",
+      "_origin": "ast",
+      "id": "admin_admin_controller_resolvedispute",
+      "community": 12,
+      "norm_label": "resolvedispute()"
     },
     {
       "label": "admin.routes.js",
@@ -1040,7 +1060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller",
-      "community": 3,
+      "community": 2,
       "norm_label": "chat.controller.js"
     },
     {
@@ -1050,7 +1070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller_prisma",
-      "community": 3,
+      "community": 2,
       "norm_label": "prisma"
     },
     {
@@ -1060,7 +1080,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "chat_chat_controller_getchathistory",
-      "community": 3,
+      "community": 2,
       "norm_label": "getchathistory()"
     },
     {
@@ -1070,7 +1090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes",
-      "community": 3,
+      "community": 2,
       "norm_label": "chat.routes.js"
     },
     {
@@ -1080,7 +1100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes_express",
-      "community": 3,
+      "community": 2,
       "norm_label": "express"
     },
     {
@@ -1090,7 +1110,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "chat_chat_routes_router",
-      "community": 3,
+      "community": 2,
       "norm_label": "router"
     },
     {
@@ -1100,7 +1120,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "chat_chat_routes_chatcontroller",
-      "community": 3,
+      "community": 2,
       "norm_label": "chatcontroller"
     },
     {
@@ -1460,7 +1480,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "notification_notification_routes",
-      "community": 6,
+      "community": 0,
       "norm_label": "notification.routes.js"
     },
     {
@@ -1470,7 +1490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "notification_notification_routes_express",
-      "community": 6,
+      "community": 0,
       "norm_label": "express"
     },
     {
@@ -1480,7 +1500,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "notification_notification_routes_router",
-      "community": 6,
+      "community": 0,
       "norm_label": "router"
     },
     {
@@ -1490,7 +1510,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "notification_notification_routes_sendemail",
-      "community": 6,
+      "community": 0,
       "norm_label": "{ sendemail }"
     },
     {
@@ -1500,7 +1520,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "notification_notification_routes_prisma",
-      "community": 6,
+      "community": 0,
       "norm_label": "prisma"
     },
     {
@@ -1510,7 +1530,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "notification_notification_routes_verifytoken",
-      "community": 6,
+      "community": 0,
       "norm_label": "verifytoken"
     },
     {
@@ -1957,7 +1977,7 @@
       "label": "getAllTransactions()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L86",
+      "source_location": "L112",
       "_origin": "ast",
       "id": "transaction_transaction_controller_getalltransactions",
       "community": 1,
@@ -1967,7 +1987,7 @@
       "label": "returnItem()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L112",
+      "source_location": "L138",
       "_origin": "ast",
       "id": "transaction_transaction_controller_returnitem",
       "community": 1,
@@ -1977,17 +1997,27 @@
       "label": "getMyRentals()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L166",
+      "source_location": "L192",
       "_origin": "ast",
       "id": "transaction_transaction_controller_getmyrentals",
       "community": 1,
       "norm_label": "getmyrentals()"
     },
     {
+      "label": "getTransactionById()",
+      "file_type": "code",
+      "source_file": "src/modules/transaction/transaction.controller.js",
+      "source_location": "L260",
+      "_origin": "ast",
+      "id": "transaction_transaction_controller_gettransactionbyid",
+      "community": 1,
+      "norm_label": "gettransactionbyid()"
+    },
+    {
       "label": "completeTransaction()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L190",
+      "source_location": "L324",
       "_origin": "ast",
       "id": "transaction_transaction_controller_completetransaction",
       "community": 1,
@@ -1997,7 +2027,7 @@
       "label": "submitReturnProof()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L267",
+      "source_location": "L401",
       "_origin": "ast",
       "id": "transaction_transaction_controller_submitreturnproof",
       "community": 1,
@@ -2010,7 +2040,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes",
-      "community": 11,
+      "community": 6,
       "norm_label": "transaction.routes.js"
     },
     {
@@ -2020,7 +2050,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes_express",
-      "community": 11,
+      "community": 6,
       "norm_label": "express"
     },
     {
@@ -2030,7 +2060,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "transaction_transaction_routes_router",
-      "community": 11,
+      "community": 6,
       "norm_label": "router"
     },
     {
@@ -2040,7 +2070,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "transaction_transaction_routes_transactioncontroller",
-      "community": 11,
+      "community": 6,
       "norm_label": "transactioncontroller"
     },
     {
@@ -2050,7 +2080,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "transaction_transaction_routes_returncontroller",
-      "community": 11,
+      "community": 6,
       "norm_label": "returncontroller"
     },
     {
@@ -2060,7 +2090,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "transaction_transaction_routes_verifytoken",
-      "community": 11,
+      "community": 6,
       "norm_label": "verifytoken"
     },
     {
@@ -2070,7 +2100,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "transaction_transaction_routes_multer",
-      "community": 11,
+      "community": 6,
       "norm_label": "multer"
     },
     {
@@ -2080,7 +2110,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "transaction_transaction_routes_path",
-      "community": 11,
+      "community": 6,
       "norm_label": "path"
     },
     {
@@ -2090,7 +2120,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "transaction_transaction_routes_storage",
-      "community": 11,
+      "community": 6,
       "norm_label": "storage"
     },
     {
@@ -2100,7 +2130,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "transaction_transaction_routes_upload",
-      "community": 11,
+      "community": 6,
       "norm_label": "upload"
     },
     {
@@ -4032,11 +4062,31 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/admin/admin.controller.js",
+      "source_location": "L26",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "admin_admin_controller",
+      "target": "admin_admin_controller_getdisputes"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/admin/admin.controller.js",
       "source_location": "L1",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "admin_admin_controller",
       "target": "admin_admin_controller_prisma"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/admin/admin.controller.js",
+      "source_location": "L75",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "admin_admin_controller",
+      "target": "admin_admin_controller_resolvedispute"
     },
     {
       "relation": "imports_from",
@@ -4059,6 +4109,17 @@
       "confidence_score": 1.0,
       "source": "admin_admin_routes",
       "target": "admin_admin_controller"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "INFERRED",
+      "confidence_score": 0.8,
+      "source_file": "src/modules/admin/admin.controller.js",
+      "source_location": "L120",
+      "weight": 1.0,
+      "source": "admin_admin_controller_resolvedispute",
+      "target": "payment_payment_service_disbursepayment"
     },
     {
       "relation": "contains",
@@ -4955,6 +5016,17 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/modules/transaction/transaction.controller.js",
+      "source_location": "L291",
+      "weight": 1.0,
+      "source": "transaction_transaction_controller_gettransactionbyid",
+      "target": "item_item_service_restorestock"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/modules/transaction/transaction.controller.js",
       "source_location": "L129",
       "weight": 1.0,
       "source": "transaction_transaction_controller_returnitem",
@@ -5621,6 +5693,16 @@
       "confidence_score": 1.0,
       "source": "transaction_transaction_controller",
       "target": "transaction_transaction_controller_getmyrentals"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/transaction/transaction.controller.js",
+      "source_location": "L260",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "transaction_transaction_controller",
+      "target": "transaction_transaction_controller_gettransactionbyid"
     },
     {
       "relation": "contains",
@@ -6780,5 +6862,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4a90c4744cacf0abad765b7aa9ea54294ef86d25"
+  "built_at_commit": "4861f4f5d5ea2a2e5f8a2c094c2b3b29726f4498"
 }

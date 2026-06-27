@@ -25,6 +25,9 @@ router.get('/', verifyToken, transactionController.getAllTransactions);
 // GET /api/transactions/my-rentals — Ambil riwayat transaksi penyewa
 router.get('/my-rentals', verifyToken, transactionController.getMyRentals);
 
+// GET /api/transactions/:id — Ambil detail transaksi by ID
+router.get('/:id', verifyToken, transactionController.getTransactionById);
+
 // PUT /api/transactions/:id/pay — Update status jadi dibayar
 router.put('/:id/pay', transactionController.payTransaction);
 
