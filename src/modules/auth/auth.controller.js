@@ -33,16 +33,14 @@ exports.register = async (req, res) => {
             }
         });
 
-        // 🔥 Kirim email selamat datang
-        try {
-            await sendEmail({
-                email_tujuan: email,
-                judul: '🎉 Selamat Datang di SewaKi!',
-                isi_pesan: `Halo ${nama},\n\nTerima kasih sudah bergabung di SewaKi. Akun kamu berhasil dibuat.\n\nYuk, mulai eksplorasi aplikasi sekarang!`
-            });
-        } catch (emailErr) {
+        // 🔥 Kirim email selamat datang (Fire and Forget)
+        sendEmail({
+            email_tujuan: email,
+            judul: '🎉 Selamat Datang di SewaKi!',
+            isi_pesan: `Halo ${nama},\n\nTerima kasih sudah bergabung di SewaKi. Akun kamu berhasil dibuat.\n\nYuk, mulai eksplorasi aplikasi sekarang!`
+        }).catch((emailErr) => {
             console.error('Peringatan: Gagal mengirim email selamat datang:', emailErr.message);
-        }
+        });
 
         res.status(201).json({
             success: true,
