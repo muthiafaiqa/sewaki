@@ -14,6 +14,9 @@ router.get('/', itemController.getAllItems);
 // Route untuk melihat detail satu barang (public)
 router.get('/:id', itemController.getItemById);
 
+// Route untuk melihat tanggal booking barang yang sudah terjadwal (public)
+router.get('/:id/booked-dates', itemController.getBookedDates);
+
 // Route untuk menambah barang (harus login — pemilik_id diambil dari token)
 router.post('/', verifyToken, verifyToken.checkRole(['pemilik']), upload.any(), itemController.createItem);
 

@@ -1,16 +1,16 @@
-# Graph Report - sewaki-monolith  (2026-06-27)
+# Graph Report - sewaki-monolith  (2026-06-28)
 
 ## Corpus Check
-- 50 files · ~20,114 words
+- 50 files · ~20,308 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 324 nodes · 350 edges · 29 communities (20 shown, 9 thin omitted)
+- 327 nodes · 353 edges · 29 communities (20 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `4861f4f5`
+- Built from commit: `787bb99b`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -74,24 +74,24 @@
 ## Communities (29 total, 9 thin omitted)
 
 ### Community 0 - "Core Business Operations"
-Cohesion: 0.07
-Nodes (25): bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma, router (+17 more)
+Cohesion: 0.06
+Nodes (26): resolveDispute(), bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma (+18 more)
 
 ### Community 1 - "Inventory and Transactions"
-Cohesion: 0.09
-Nodes (15): prisma, { reduceStock, restoreStock }, prisma, reduceStock(), restoreStock(), createTransaction(), getTransactionById(), { payTransaction } (+7 more)
+Cohesion: 0.08
+Nodes (18): { createClient }, path, prisma, { reduceStock, restoreStock }, supabase, prisma, reduceStock(), restoreStock() (+10 more)
 
 ### Community 2 - "Server Architecture and Routing"
 Cohesion: 0.10
-Nodes (17): prisma, chatController, express, router, adminRoutes, app, authRoutes, chatRoutes (+9 more)
+Nodes (18): app, http, io, prisma, { Server }, adminRoutes, app, authRoutes (+10 more)
 
 ### Community 3 - "Database Setup and Connectivity"
-Cohesion: 0.09
-Nodes (15): adapter, { Pool }, prisma, { PrismaClient }, { PrismaPg }, prisma, path, prisma (+7 more)
+Cohesion: 0.08
+Nodes (14): prisma, chatController, express, router, adapter, { Pool }, prisma, { PrismaClient } (+6 more)
 
 ### Community 4 - "Project Configuration and Scripts"
 Cohesion: 0.06
-Nodes (30): author, dependencies, axios, bcrypt, cors, dotenv, express, jsonwebtoken (+22 more)
+Nodes (31): author, dependencies, axios, bcrypt, cors, dotenv, express, jsonwebtoken (+23 more)
 
 ### Community 5 - "KYC Verification and Authentication"
 Cohesion: 0.12
@@ -102,8 +102,8 @@ Cohesion: 0.10
 Nodes (14): jwt, express, paymentController, router, verifyToken, express, multer, path (+6 more)
 
 ### Community 7 - "Item Catalog and Reviews Routing"
-Cohesion: 0.14
-Nodes (10): express, itemController, multer, path, reviewController, router, storage, upload (+2 more)
+Cohesion: 0.15
+Nodes (9): express, itemController, multer, reviewController, router, storage, upload, verifyToken (+1 more)
 
 ### Community 8 - "Package Dependencies"
 Cohesion: 0.08
@@ -118,8 +118,8 @@ Cohesion: 0.20
 Nodes (5): prisma, express, reviewController, router, verifyToken
 
 ### Community 12 - "Admin Financial Operations"
-Cohesion: 0.20
-Nodes (6): prisma, resolveDispute(), adminController, express, router, verifyToken
+Cohesion: 0.22
+Nodes (5): prisma, adminController, express, router, verifyToken
 
 ### Community 13 - "Dashboard Statistics"
 Cohesion: 0.25
@@ -150,24 +150,24 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **208 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+203 more)
+- **211 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+206 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `disbursePayment()` connect `Core Business Operations` to `Admin Financial Operations`?**
-  _High betweenness centrality (0.008) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _209 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _212 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
-  _Cohesion score 0.06606606606606606 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06401137980085349 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**
-  _Cohesion score 0.09113300492610837 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08064516129032258 - nodes in this community are weakly interconnected._
 - **Should `Server Architecture and Routing` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Database Setup and Connectivity` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `Project Configuration and Scripts` be split into smaller, more focused modules?**
-  _Cohesion score 0.06451612903225806 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
+- **Should `KYC Verification and Authentication` be split into smaller, more focused modules?**
+  _Cohesion score 0.125 - nodes in this community are weakly interconnected._

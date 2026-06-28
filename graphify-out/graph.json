@@ -1334,6 +1334,16 @@
       "norm_label": "deleteitem()"
     },
     {
+      "label": "getBookedDates()",
+      "file_type": "code",
+      "source_file": "src/modules/item/item.controller.js",
+      "source_location": "L224",
+      "_origin": "ast",
+      "id": "item_item_controller_getbookeddates",
+      "community": 1,
+      "norm_label": "getbookeddates()"
+    },
+    {
       "label": "item.routes.js",
       "file_type": "code",
       "source_file": "src/modules/item/item.routes.js",
@@ -3590,9 +3600,9 @@
       "source_file": "package.json",
       "source_location": "L19",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "package_dependencies",
-      "target": "package_dependencies_supabase_supabase_js",
-      "confidence_score": 1.0
+      "target": "package_dependencies_supabase_supabase_js"
     },
     {
       "relation": "contains",
@@ -4702,9 +4712,9 @@
       "source_file": "src/modules/item/item.controller.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "item_item_controller",
-      "target": "item_item_controller_createclient",
-      "confidence_score": 1.0
+      "target": "item_item_controller_createclient"
     },
     {
       "relation": "contains",
@@ -4740,6 +4750,16 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/item/item.controller.js",
+      "source_location": "L224",
+      "weight": 1.0,
+      "source": "item_item_controller",
+      "target": "item_item_controller_getbookeddates",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/item/item.controller.js",
       "source_location": "L57",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4752,9 +4772,9 @@
       "source_file": "src/modules/item/item.controller.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "item_item_controller",
-      "target": "item_item_controller_path",
-      "confidence_score": 1.0
+      "target": "item_item_controller_path"
     },
     {
       "relation": "contains",
@@ -4802,9 +4822,9 @@
       "source_file": "src/modules/item/item.controller.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "item_item_controller",
-      "target": "item_item_controller_supabase",
-      "confidence_score": 1.0
+      "target": "item_item_controller_supabase"
     },
     {
       "relation": "imports_from",
@@ -6922,5 +6942,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "787bb99bebe49af9cb4b6baa60c7076a9bc50dba"
+  "built_at_commit": "ab7af69a3c1b9ec70633a3728752602829d2942b"
 }

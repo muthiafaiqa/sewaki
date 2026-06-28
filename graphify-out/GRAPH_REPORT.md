@@ -1,16 +1,16 @@
 # Graph Report - sewaki-monolith  (2026-06-28)
 
 ## Corpus Check
-- 50 files · ~20,308 words
+- 50 files · ~20,619 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 327 nodes · 353 edges · 29 communities (20 shown, 9 thin omitted)
+- 328 nodes · 354 edges · 29 communities (20 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `787bb99b`
+- Built from commit: `ab7af69a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -157,17 +157,17 @@ Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphif
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `restoreStock()` connect `Inventory and Transactions` to `Core Business Operations`?**
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
   _212 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
   _Cohesion score 0.06401137980085349 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**
-  _Cohesion score 0.08064516129032258 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07765151515151515 - nodes in this community are weakly interconnected._
 - **Should `Server Architecture and Routing` be split into smaller, more focused modules?**
   _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Database Setup and Connectivity` be split into smaller, more focused modules?**
   _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
 - **Should `Project Configuration and Scripts` be split into smaller, more focused modules?**
   _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
-- **Should `KYC Verification and Authentication` be split into smaller, more focused modules?**
-  _Cohesion score 0.125 - nodes in this community are weakly interconnected._

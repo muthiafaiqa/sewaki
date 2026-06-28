@@ -219,3 +219,45 @@ exports.deleteItem = async (req, res) => {
         res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server saat menghapus barang' });
     }
 };
+
+// Fungsi untuk mengambil daftar tanggal yang sudah di-booking
+exports.getBookedDates = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        // Cari item untuk memastikan item tersebut ada
+        const item = await prisma.items.findFirst({
+            where: { id, is_active: true }
+        });
+
+        if (!item) {
+            return res.status(404).json({ success: false, message: 'Barang tidak ditemukan!' });
+        }
+
+        // Cari transaksi dengan status aktif/sah (bukan expired/menunggu_pembayaran)
+        const transactions = await prisma.transactions.findMany({
+            where: {
+                item_id: id,
+                status_transaksi: {
+                    in: ['dibayar', 'menunggu_inspeksi', 'selesai', 'DISPUTED', 'disputed', 'Disputed', 'CLOSED']
+                }
+            },
+            select: {
+                tanggal_mulai: true,
+                tanggal_selesai: true
+            }
+        });
+
+        // Format tanggal menjadi YYYY-MM-DD
+        const bookedDates = transactions.map(tx => {
+            const start = tx.tanggal_mulai.toISOString().split('T')[0];
+            const end = tx.tanggal_selesai.toISOString().split('T')[0];
+            return { start, end };
+        });
+
+        res.status(200).json({ success: true, data: bookedDates });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server saat mengambil tanggal booking' });
+    }
+};
