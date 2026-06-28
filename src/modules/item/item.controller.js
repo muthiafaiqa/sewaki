@@ -1,5 +1,12 @@
+const path = require('path');
+const { createClient } = require('@supabase/supabase-js');
 const prisma = require('../../shared/config/prisma');
 const { reduceStock, restoreStock } = require('./item.service');
+
+// Initialize Supabase Client
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY ? process.env.SUPABASE_ANON_KEY.trim() : '';
+const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
 // Fungsi untuk menambah barang baru
 exports.createItem = async (req, res) => {
@@ -13,7 +20,38 @@ exports.createItem = async (req, res) => {
             return res.status(400).json({ success: false, message: 'Nama barang, harga sewa, dan pemilik wajib diisi!' });
         }
 
-        const namaFoto = req.files && req.files.length > 0 ? req.files[0].filename : null;
+        let foto_barang = null;
+        let file = null;
+
+        if (req.file) {
+            file = req.file;
+        } else if (req.files && req.files.length > 0) {
+            file = req.files[0];
+        }
+
+        if (file) {
+            const fileExt = path.extname(file.originalname);
+            const fileName = `item-${Date.now()}${fileExt}`;
+
+            const { data, error: uploadError } = await supabase.storage
+                .from('sewaki-images')
+                .upload(fileName, file.buffer, {
+                    contentType: file.mimetype,
+                    upsert: false
+                });
+
+            if (uploadError) {
+                console.error('Supabase upload error:', uploadError);
+                return res.status(500).json({ success: false, message: 'Gagal mengunggah gambar ke Supabase Storage' });
+            }
+
+            const { data: publicUrlData } = supabase.storage
+                .from('sewaki-images')
+                .getPublicUrl(fileName);
+
+            foto_barang = publicUrlData.publicUrl;
+        }
+
         const parsedDeposit = parseInt(deposit, 10);
         const depositVal = isNaN(parsedDeposit) ? 0 : parsedDeposit;
 
@@ -25,7 +63,7 @@ exports.createItem = async (req, res) => {
                 stok: stok ? parseInt(stok, 10) : 1,
                 pemilik_id,
                 lokasi: lokasi || 'Tidak Diketahui',
-                foto_barang: namaFoto,
+                foto_barang,
                 deposit: depositVal
             }
         });

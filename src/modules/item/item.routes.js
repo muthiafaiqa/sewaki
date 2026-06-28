@@ -4,16 +4,8 @@ const itemController = require('./item.controller');
 const reviewController = require('./review.controller');
 const verifyToken = require('../../shared/middleware/authMiddleware');
 const multer = require('multer');
-const path = require('path');
 
-const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-        cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-        cb(null, 'item-' + Date.now() + path.extname(file.originalname));
-    }
-});
+const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
 // Route untuk melihat semua barang (public)

@@ -174,20 +174,10 @@
       "norm_label": "@prisma/client"
     },
     {
-      "label": "@supabase/supabase-js",
-      "file_type": "code",
-      "source_file": "package.json",
-      "source_location": "L19",
-      "_origin": "ast",
-      "id": "package_dependencies_supabase_supabase_js",
-      "community": 4,
-      "norm_label": "@supabase/supabase-js"
-    },
-    {
       "label": "axios",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_axios",
       "community": 4,
@@ -197,7 +187,7 @@
       "label": "bcrypt",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_bcrypt",
       "community": 4,
@@ -207,7 +197,7 @@
       "label": "cors",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_cors",
       "community": 4,
@@ -217,7 +207,7 @@
       "label": "dotenv",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_dotenv",
       "community": 4,
@@ -227,7 +217,7 @@
       "label": "express",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_express",
       "community": 4,
@@ -237,7 +227,7 @@
       "label": "jsonwebtoken",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_jsonwebtoken",
       "community": 4,
@@ -247,7 +237,7 @@
       "label": "multer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_multer",
       "community": 4,
@@ -257,7 +247,7 @@
       "label": "nodemailer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_nodemailer",
       "community": 4,
@@ -267,7 +257,7 @@
       "label": "pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_pg",
       "community": 4,
@@ -277,7 +267,7 @@
       "label": "socket.io",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_socket_io",
       "community": 4,
@@ -287,7 +277,7 @@
       "label": "xendit-node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_xendit_node",
       "community": 4,
@@ -297,7 +287,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L32",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 4,
@@ -307,7 +297,7 @@
       "label": "nodemon",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_devdependencies_nodemon",
       "community": 4,
@@ -317,7 +307,7 @@
       "label": "prisma",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L33",
       "_origin": "ast",
       "id": "package_devdependencies_prisma",
       "community": 4,
@@ -520,7 +510,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server",
-      "community": 2,
+      "community": 3,
       "norm_label": "server.js"
     },
     {
@@ -530,7 +520,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "server_http",
-      "community": 2,
+      "community": 3,
       "norm_label": "http"
     },
     {
@@ -540,7 +530,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_server",
-      "community": 2,
+      "community": 3,
       "norm_label": "{ server }"
     },
     {
@@ -550,7 +540,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "server_app",
-      "community": 2,
+      "community": 3,
       "norm_label": "app"
     },
     {
@@ -560,7 +550,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_prisma",
-      "community": 2,
+      "community": 3,
       "norm_label": "prisma"
     },
     {
@@ -570,7 +560,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "server_io",
-      "community": 2,
+      "community": 3,
       "norm_label": "io"
     },
     {
@@ -760,7 +750,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "admin_admin_controller_resolvedispute",
-      "community": 0,
+      "community": 12,
       "norm_label": "resolvedispute()"
     },
     {
@@ -1070,7 +1060,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller",
-      "community": 3,
+      "community": 2,
       "norm_label": "chat.controller.js"
     },
     {
@@ -1080,7 +1070,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller_prisma",
-      "community": 3,
+      "community": 2,
       "norm_label": "prisma"
     },
     {
@@ -1090,7 +1080,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "chat_chat_controller_getchathistory",
-      "community": 3,
+      "community": 2,
       "norm_label": "getchathistory()"
     },
     {
@@ -1100,7 +1090,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes",
-      "community": 3,
+      "community": 2,
       "norm_label": "chat.routes.js"
     },
     {
@@ -1110,7 +1100,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes_express",
-      "community": 3,
+      "community": 2,
       "norm_label": "express"
     },
     {
@@ -1120,7 +1110,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "chat_chat_routes_router",
-      "community": 3,
+      "community": 2,
       "norm_label": "router"
     },
     {
@@ -1130,7 +1120,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "chat_chat_routes_chatcontroller",
-      "community": 3,
+      "community": 2,
       "norm_label": "chatcontroller"
     },
     {
@@ -1224,30 +1214,10 @@
       "norm_label": "item.controller.js"
     },
     {
-      "label": "path",
-      "file_type": "code",
-      "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "item_item_controller_path",
-      "community": 1,
-      "norm_label": "path"
-    },
-    {
-      "label": "{ createClient }",
-      "file_type": "code",
-      "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "item_item_controller_createclient",
-      "community": 1,
-      "norm_label": "{ createclient }"
-    },
-    {
       "label": "prisma",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L3",
+      "source_location": "L1",
       "_origin": "ast",
       "id": "item_item_controller_prisma",
       "community": 1,
@@ -1257,27 +1227,17 @@
       "label": "{ reduceStock, restoreStock }",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L4",
+      "source_location": "L2",
       "_origin": "ast",
       "id": "item_item_controller_reducestock_restorestock",
       "community": 1,
       "norm_label": "{ reducestock, restorestock }"
     },
     {
-      "label": "supabase",
-      "file_type": "code",
-      "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L9",
-      "_origin": "ast",
-      "id": "item_item_controller_supabase",
-      "community": 1,
-      "norm_label": "supabase"
-    },
-    {
       "label": "createItem()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L12",
+      "source_location": "L5",
       "_origin": "ast",
       "id": "item_item_controller_createitem",
       "community": 1,
@@ -1287,7 +1247,7 @@
       "label": "getAllItems()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L79",
+      "source_location": "L41",
       "_origin": "ast",
       "id": "item_item_controller_getallitems",
       "community": 1,
@@ -1297,7 +1257,7 @@
       "label": "getItemById()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L96",
+      "source_location": "L58",
       "_origin": "ast",
       "id": "item_item_controller_getitembyid",
       "community": 1,
@@ -1307,7 +1267,7 @@
       "label": "reduceStock()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L139",
+      "source_location": "L101",
       "_origin": "ast",
       "id": "item_item_controller_reducestock",
       "community": 1,
@@ -1317,7 +1277,7 @@
       "label": "restoreStock()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L151",
+      "source_location": "L113",
       "_origin": "ast",
       "id": "item_item_controller_restorestock",
       "community": 1,
@@ -1327,7 +1287,7 @@
       "label": "deleteItem()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L163",
+      "source_location": "L125",
       "_origin": "ast",
       "id": "item_item_controller_deleteitem",
       "community": 1,
@@ -1404,10 +1364,20 @@
       "norm_label": "multer"
     },
     {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "src/modules/item/item.routes.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "item_item_routes_path",
+      "community": 7,
+      "norm_label": "path"
+    },
+    {
       "label": "storage",
       "file_type": "code",
       "source_file": "src/modules/item/item.routes.js",
-      "source_location": "L8",
+      "source_location": "L9",
       "_origin": "ast",
       "id": "item_item_routes_storage",
       "community": 7,
@@ -1417,7 +1387,7 @@
       "label": "upload",
       "file_type": "code",
       "source_file": "src/modules/item/item.routes.js",
-      "source_location": "L9",
+      "source_location": "L17",
       "_origin": "ast",
       "id": "item_item_routes_upload",
       "community": 7,
@@ -2037,7 +2007,7 @@
       "label": "getTransactionById()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L277",
+      "source_location": "L260",
       "_origin": "ast",
       "id": "transaction_transaction_controller_gettransactionbyid",
       "community": 1,
@@ -2047,7 +2017,7 @@
       "label": "completeTransaction()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L358",
+      "source_location": "L324",
       "_origin": "ast",
       "id": "transaction_transaction_controller_completetransaction",
       "community": 1,
@@ -2057,7 +2027,7 @@
       "label": "submitReturnProof()",
       "file_type": "code",
       "source_file": "src/modules/transaction/transaction.controller.js",
-      "source_location": "L435",
+      "source_location": "L401",
       "_origin": "ast",
       "id": "transaction_transaction_controller_submitreturnproof",
       "community": 1,
@@ -3588,16 +3558,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "package.json",
-      "source_location": "L19",
-      "weight": 1.0,
-      "source": "package_dependencies",
-      "target": "package_dependencies_supabase_supabase_js",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "package.json",
       "source_location": "L29",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4700,16 +4660,6 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L2",
-      "weight": 1.0,
-      "source": "item_item_controller",
-      "target": "item_item_controller_createclient",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/modules/item/item.controller.js",
       "source_location": "L5",
       "weight": 1.0,
       "confidence_score": 1.0,
@@ -4752,16 +4702,6 @@
       "source_file": "src/modules/item/item.controller.js",
       "source_location": "L1",
       "weight": 1.0,
-      "source": "item_item_controller",
-      "target": "item_item_controller_path",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L1",
-      "weight": 1.0,
       "confidence_score": 1.0,
       "source": "item_item_controller",
       "target": "item_item_controller_prisma"
@@ -4795,16 +4735,6 @@
       "confidence_score": 1.0,
       "source": "item_item_controller",
       "target": "item_item_controller_restorestock"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L9",
-      "weight": 1.0,
-      "source": "item_item_controller",
-      "target": "item_item_controller_supabase",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -4879,6 +4809,16 @@
       "confidence_score": 1.0,
       "source": "item_item_routes",
       "target": "item_item_routes_multer"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/item/item.routes.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "confidence_score": 1.0,
+      "source": "item_item_routes",
+      "target": "item_item_routes_path"
     },
     {
       "relation": "contains",
@@ -6922,5 +6862,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "787bb99bebe49af9cb4b6baa60c7076a9bc50dba"
+  "built_at_commit": "4861f4f5d5ea2a2e5f8a2c094c2b3b29726f4498"
 }
