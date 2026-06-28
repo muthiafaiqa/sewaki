@@ -163,6 +163,11 @@ exports.restoreStock = async (req, res) => {
 exports.deleteItem = async (req, res) => {
     try {
         const { id } = req.params;
+        const loggedInUserId = req.user?.id || req.headers['x-user-id'];
+
+        if (!loggedInUserId) {
+            return res.status(401).json({ success: false, message: 'Akses ditolak. Token tidak ditemukan atau tidak valid!' });
+        }
 
         const item = await prisma.items.findFirst({
             where: { id, is_active: true }
@@ -172,10 +177,41 @@ exports.deleteItem = async (req, res) => {
             return res.status(404).json({ success: false, message: 'Barang tidak ditemukan!' });
         }
 
-        await prisma.items.update({
-            where: { id },
-            data: { is_active: false }
+        // 1. Otorisasi Pemilik: Pastikan hanya pemilik barang yang bisa menghapusnya
+        if (item.pemilik_id !== loggedInUserId) {
+            return res.status(403).json({ success: false, message: 'Akses ditolak. Anda bukan pemilik barang ini!' });
+        }
+
+        // 2. Proteksi Transaksi Aktif: Cek status transaksi yang masih berjalan
+        const activeTransaction = await prisma.transactions.findFirst({
+            where: {
+                item_id: id,
+                status_transaksi: {
+                    in: ['menunggu_pembayaran', 'dibayar', 'menunggu_inspeksi', 'DISPUTED', 'disputed', 'Disputed']
+                }
+            }
         });
+
+        if (activeTransaction) {
+            return res.status(400).json({
+                success: false,
+                message: 'Barang tidak bisa dihapus karena sedang dalam proses penyewaan aktif.'
+            });
+        }
+
+        // 3. Eksekusi: Hapus dari database.
+        // Jika terdapat riwayat transaksi lampau, lakukan soft delete agar tidak melanggar constraint relasi di database.
+        try {
+            await prisma.items.delete({
+                where: { id }
+            });
+        } catch (dbError) {
+            // Fallback ke soft delete jika gagal karena relasi foreign key
+            await prisma.items.update({
+                where: { id },
+                data: { is_active: false }
+            });
+        }
 
         res.status(200).json({ success: true, message: 'Barang berhasil dihapus!' });
     } catch (error) {
