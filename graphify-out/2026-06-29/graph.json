@@ -444,6 +444,56 @@
       "norm_label": "checknotificationstable()"
     },
     {
+      "label": "test-supabase-storage.js",
+      "file_type": "code",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_test_supabase_storage",
+      "community": 13,
+      "norm_label": "test-supabase-storage.js"
+    },
+    {
+      "label": "{ createClient }",
+      "file_type": "code",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_test_supabase_storage_createclient",
+      "community": 13,
+      "norm_label": "{ createclient }"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "scratch_test_supabase_storage_dotenv",
+      "community": 13,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "scratch_test_supabase_storage_supabase",
+      "community": 13,
+      "norm_label": "supabase"
+    },
+    {
+      "label": "run()",
+      "file_type": "code",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "scratch_test_supabase_storage_run",
+      "community": 13,
+      "norm_label": "run()"
+    },
+    {
       "label": "scratch_users.js",
       "file_type": "code",
       "source_file": "scratch_users.js",
@@ -520,7 +570,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "server",
-      "community": 3,
+      "community": 2,
       "norm_label": "server.js"
     },
     {
@@ -530,7 +580,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "server_http",
-      "community": 3,
+      "community": 2,
       "norm_label": "http"
     },
     {
@@ -540,7 +590,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "server_server",
-      "community": 3,
+      "community": 2,
       "norm_label": "{ server }"
     },
     {
@@ -550,7 +600,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "server_app",
-      "community": 3,
+      "community": 2,
       "norm_label": "app"
     },
     {
@@ -560,7 +610,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "server_prisma",
-      "community": 3,
+      "community": 2,
       "norm_label": "prisma"
     },
     {
@@ -570,7 +620,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "server_io",
-      "community": 3,
+      "community": 2,
       "norm_label": "io"
     },
     {
@@ -720,7 +770,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_admin_controller",
-      "community": 12,
+      "community": 6,
       "norm_label": "admin.controller.js"
     },
     {
@@ -730,7 +780,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_admin_controller_prisma",
-      "community": 12,
+      "community": 6,
       "norm_label": "prisma"
     },
     {
@@ -740,7 +790,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "admin_admin_controller_getadminrevenue",
-      "community": 12,
+      "community": 6,
       "norm_label": "getadminrevenue()"
     },
     {
@@ -750,7 +800,7 @@
       "source_location": "L26",
       "_origin": "ast",
       "id": "admin_admin_controller_getdisputes",
-      "community": 12,
+      "community": 6,
       "norm_label": "getdisputes()"
     },
     {
@@ -760,7 +810,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "admin_admin_controller_resolvedispute",
-      "community": 12,
+      "community": 0,
       "norm_label": "resolvedispute()"
     },
     {
@@ -770,7 +820,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_admin_routes",
-      "community": 12,
+      "community": 6,
       "norm_label": "admin.routes.js"
     },
     {
@@ -780,7 +830,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "admin_admin_routes_express",
-      "community": 12,
+      "community": 6,
       "norm_label": "express"
     },
     {
@@ -790,7 +840,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "admin_admin_routes_router",
-      "community": 12,
+      "community": 6,
       "norm_label": "router"
     },
     {
@@ -800,7 +850,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "admin_admin_routes_admincontroller",
-      "community": 12,
+      "community": 6,
       "norm_label": "admincontroller"
     },
     {
@@ -810,7 +860,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "admin_admin_routes_verifytoken",
-      "community": 12,
+      "community": 6,
       "norm_label": "verifytoken"
     },
     {
@@ -1024,10 +1074,60 @@
       "norm_label": "prisma"
     },
     {
-      "label": "uploadKtp()",
+      "label": "fs",
+      "file_type": "code",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "auth_kyc_controller_fs",
+      "community": 5,
+      "norm_label": "fs"
+    },
+    {
+      "label": "path",
+      "file_type": "code",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "auth_kyc_controller_path",
+      "community": 5,
+      "norm_label": "path"
+    },
+    {
+      "label": "{ createClient }",
       "file_type": "code",
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L4",
+      "_origin": "ast",
+      "id": "auth_kyc_controller_createclient",
+      "community": 5,
+      "norm_label": "{ createclient }"
+    },
+    {
+      "label": "supabase",
+      "file_type": "code",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "auth_kyc_controller_supabase",
+      "community": 5,
+      "norm_label": "supabase"
+    },
+    {
+      "label": "getKtpUrl()",
+      "file_type": "code",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "auth_kyc_controller_getktpurl",
+      "community": 5,
+      "norm_label": "getktpurl()"
+    },
+    {
+      "label": "uploadKtp()",
+      "file_type": "code",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L51",
       "_origin": "ast",
       "id": "auth_kyc_controller_uploadktp",
       "community": 5,
@@ -1037,7 +1137,7 @@
       "label": "verifyKyc()",
       "file_type": "code",
       "source_file": "src/modules/auth/kyc.controller.js",
-      "source_location": "L39",
+      "source_location": "L99",
       "_origin": "ast",
       "id": "auth_kyc_controller_verifykyc",
       "community": 5,
@@ -1047,7 +1147,7 @@
       "label": "getKycList()",
       "file_type": "code",
       "source_file": "src/modules/auth/kyc.controller.js",
-      "source_location": "L93",
+      "source_location": "L153",
       "_origin": "ast",
       "id": "auth_kyc_controller_getkyclist",
       "community": 5,
@@ -1057,7 +1157,7 @@
       "label": "rejectKyc()",
       "file_type": "code",
       "source_file": "src/modules/auth/kyc.controller.js",
-      "source_location": "L116",
+      "source_location": "L188",
       "_origin": "ast",
       "id": "auth_kyc_controller_rejectkyc",
       "community": 5,
@@ -1070,7 +1170,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller",
-      "community": 2,
+      "community": 3,
       "norm_label": "chat.controller.js"
     },
     {
@@ -1080,7 +1180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_controller_prisma",
-      "community": 2,
+      "community": 3,
       "norm_label": "prisma"
     },
     {
@@ -1090,7 +1190,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "chat_chat_controller_getchathistory",
-      "community": 2,
+      "community": 3,
       "norm_label": "getchathistory()"
     },
     {
@@ -1100,7 +1200,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes",
-      "community": 2,
+      "community": 3,
       "norm_label": "chat.routes.js"
     },
     {
@@ -1110,7 +1210,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "chat_chat_routes_express",
-      "community": 2,
+      "community": 3,
       "norm_label": "express"
     },
     {
@@ -1120,7 +1220,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "chat_chat_routes_router",
-      "community": 2,
+      "community": 3,
       "norm_label": "router"
     },
     {
@@ -1130,7 +1230,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "chat_chat_routes_chatcontroller",
-      "community": 2,
+      "community": 3,
       "norm_label": "chatcontroller"
     },
     {
@@ -1140,7 +1240,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboard_controller",
-      "community": 13,
+      "community": 6,
       "norm_label": "dashboard.controller.js"
     },
     {
@@ -1150,7 +1250,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboard_controller_prisma",
-      "community": 13,
+      "community": 6,
       "norm_label": "prisma"
     },
     {
@@ -1160,7 +1260,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "dashboard_dashboard_controller_getdashboardstats",
-      "community": 13,
+      "community": 6,
       "norm_label": "getdashboardstats()"
     },
     {
@@ -1170,7 +1270,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboard_routes",
-      "community": 13,
+      "community": 6,
       "norm_label": "dashboard.routes.js"
     },
     {
@@ -1180,7 +1280,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "dashboard_dashboard_routes_express",
-      "community": 13,
+      "community": 6,
       "norm_label": "express"
     },
     {
@@ -1190,7 +1290,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "dashboard_dashboard_routes_router",
-      "community": 13,
+      "community": 6,
       "norm_label": "router"
     },
     {
@@ -1200,7 +1300,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "dashboard_dashboard_routes_dashboardcontroller",
-      "community": 13,
+      "community": 6,
       "norm_label": "dashboardcontroller"
     },
     {
@@ -1210,7 +1310,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "dashboard_dashboard_routes_verifytoken",
-      "community": 13,
+      "community": 6,
       "norm_label": "verifytoken"
     },
     {
@@ -2080,7 +2180,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes",
-      "community": 6,
+      "community": 12,
       "norm_label": "transaction.routes.js"
     },
     {
@@ -2090,7 +2190,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes_express",
-      "community": 6,
+      "community": 12,
       "norm_label": "express"
     },
     {
@@ -2100,7 +2200,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "transaction_transaction_routes_router",
-      "community": 6,
+      "community": 12,
       "norm_label": "router"
     },
     {
@@ -2110,7 +2210,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "transaction_transaction_routes_transactioncontroller",
-      "community": 6,
+      "community": 12,
       "norm_label": "transactioncontroller"
     },
     {
@@ -2120,7 +2220,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "transaction_transaction_routes_returncontroller",
-      "community": 6,
+      "community": 12,
       "norm_label": "returncontroller"
     },
     {
@@ -2130,7 +2230,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "transaction_transaction_routes_verifytoken",
-      "community": 6,
+      "community": 12,
       "norm_label": "verifytoken"
     },
     {
@@ -2140,7 +2240,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "transaction_transaction_routes_multer",
-      "community": 6,
+      "community": 12,
       "norm_label": "multer"
     },
     {
@@ -2150,7 +2250,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "transaction_transaction_routes_path",
-      "community": 6,
+      "community": 12,
       "norm_label": "path"
     },
     {
@@ -2160,7 +2260,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "transaction_transaction_routes_storage",
-      "community": 6,
+      "community": 12,
       "norm_label": "storage"
     },
     {
@@ -2170,7 +2270,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "transaction_transaction_routes_upload",
-      "community": 6,
+      "community": 12,
       "norm_label": "upload"
     },
     {
@@ -4130,6 +4230,46 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "scratch_test_supabase_storage",
+      "target": "scratch_test_supabase_storage_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "scratch_test_supabase_storage",
+      "target": "scratch_test_supabase_storage_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "scratch_test_supabase_storage",
+      "target": "scratch_test_supabase_storage_run",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/test-supabase-storage.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "scratch_test_supabase_storage",
+      "target": "scratch_test_supabase_storage_supabase",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
       "source_file": "scratch_users.js",
       "source_location": "L4",
       "weight": 1.0,
@@ -4853,11 +4993,51 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "auth_kyc_controller",
+      "target": "auth_kyc_controller_createclient",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "auth_kyc_controller",
+      "target": "auth_kyc_controller_fs",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "auth_kyc_controller",
+      "target": "auth_kyc_controller_getktpurl",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L82",
       "weight": 1.0,
       "confidence_score": 1.0,
       "source": "auth_kyc_controller",
       "target": "auth_kyc_controller_getkyclist"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "auth_kyc_controller",
+      "target": "auth_kyc_controller_path",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4878,6 +5058,16 @@
       "confidence_score": 1.0,
       "source": "auth_kyc_controller",
       "target": "auth_kyc_controller_rejectkyc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/auth/kyc.controller.js",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "auth_kyc_controller",
+      "target": "auth_kyc_controller_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -7692,5 +7882,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "a23619077e1b5a5f3db4451373f862a923e4b43e"
+  "built_at_commit": "58b868730b293705b9ed3696f5ef7c4ed8bdb3cd"
 }

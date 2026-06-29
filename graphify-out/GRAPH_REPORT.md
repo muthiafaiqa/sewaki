@@ -1,7 +1,7 @@
 # Graph Report - sewaki-monolith  (2026-06-29)
 
 ## Corpus Check
-- 52 files · ~23,511 words
+- 52 files · ~23,596 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
@@ -10,7 +10,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `58b86873`
+- Built from commit: `7cee020d`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 

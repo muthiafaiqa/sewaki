@@ -1387,7 +1387,7 @@
       "label": "getAllItems()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L79",
+      "source_location": "L107",
       "_origin": "ast",
       "id": "item_item_controller_getallitems",
       "community": 1,
@@ -1397,7 +1397,7 @@
       "label": "getItemById()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L96",
+      "source_location": "L124",
       "_origin": "ast",
       "id": "item_item_controller_getitembyid",
       "community": 1,
@@ -1407,7 +1407,7 @@
       "label": "reduceStock()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L139",
+      "source_location": "L167",
       "_origin": "ast",
       "id": "item_item_controller_reducestock",
       "community": 1,
@@ -1417,7 +1417,7 @@
       "label": "restoreStock()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L151",
+      "source_location": "L179",
       "_origin": "ast",
       "id": "item_item_controller_restorestock",
       "community": 1,
@@ -1427,7 +1427,7 @@
       "label": "deleteItem()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L163",
+      "source_location": "L191",
       "_origin": "ast",
       "id": "item_item_controller_deleteitem",
       "community": 1,
@@ -1437,7 +1437,7 @@
       "label": "getBookedDates()",
       "file_type": "code",
       "source_file": "src/modules/item/item.controller.js",
-      "source_location": "L224",
+      "source_location": "L252",
       "_origin": "ast",
       "id": "item_item_controller_getbookeddates",
       "community": 1,
@@ -4233,9 +4233,9 @@
       "source_file": "scratch/test-supabase-storage.js",
       "source_location": "L1",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scratch_test_supabase_storage",
-      "target": "scratch_test_supabase_storage_createclient",
-      "confidence_score": 1.0
+      "target": "scratch_test_supabase_storage_createclient"
     },
     {
       "relation": "contains",
@@ -4243,9 +4243,9 @@
       "source_file": "scratch/test-supabase-storage.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scratch_test_supabase_storage",
-      "target": "scratch_test_supabase_storage_dotenv",
-      "confidence_score": 1.0
+      "target": "scratch_test_supabase_storage_dotenv"
     },
     {
       "relation": "contains",
@@ -4253,9 +4253,9 @@
       "source_file": "scratch/test-supabase-storage.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scratch_test_supabase_storage",
-      "target": "scratch_test_supabase_storage_run",
-      "confidence_score": 1.0
+      "target": "scratch_test_supabase_storage_run"
     },
     {
       "relation": "contains",
@@ -4263,9 +4263,9 @@
       "source_file": "scratch/test-supabase-storage.js",
       "source_location": "L7",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "scratch_test_supabase_storage",
-      "target": "scratch_test_supabase_storage_supabase",
-      "confidence_score": 1.0
+      "target": "scratch_test_supabase_storage_supabase"
     },
     {
       "relation": "contains",
@@ -4995,9 +4995,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L4",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_createclient",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_createclient"
     },
     {
       "relation": "contains",
@@ -5005,9 +5005,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L2",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_fs",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_fs"
     },
     {
       "relation": "contains",
@@ -5015,9 +5015,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L12",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_getktpurl",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_getktpurl"
     },
     {
       "relation": "contains",
@@ -5035,9 +5035,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L3",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_path",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_path"
     },
     {
       "relation": "contains",
@@ -5065,9 +5065,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L9",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_supabase",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_supabase"
     },
     {
       "relation": "contains",
@@ -7882,5 +7882,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "58b868730b293705b9ed3696f5ef7c4ed8bdb3cd"
+  "built_at_commit": "7cee020d22411b6d81c7a280f2e2908126a80f50"
 }

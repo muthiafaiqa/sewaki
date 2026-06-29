@@ -55,20 +55,48 @@ exports.createItem = async (req, res) => {
         const parsedDeposit = parseInt(deposit, 10);
         const depositVal = isNaN(parsedDeposit) ? 0 : parsedDeposit;
 
-        const newItem = await prisma.items.create({
-            data: {
+        // Cari barang dengan nama dan pemilik yang sama untuk menghindari duplikasi (upsert)
+        const existingItem = await prisma.items.findFirst({
+            where: {
                 nama_barang,
-                deskripsi,
-                harga_sewa_per_hari: parseInt(harga_sewa_per_hari, 10),
-                stok: stok ? parseInt(stok, 10) : 1,
-                pemilik_id,
-                lokasi: lokasi || 'Tidak Diketahui',
-                foto_barang,
-                deposit: depositVal
+                pemilik_id
             }
         });
 
-        res.status(201).json({ success: true, message: 'Barang berhasil ditambahkan!', data: newItem });
+        let savedItem;
+        if (existingItem) {
+            savedItem = await prisma.items.update({
+                where: { id: existingItem.id },
+                data: {
+                    deskripsi,
+                    harga_sewa_per_hari: parseInt(harga_sewa_per_hari, 10),
+                    stok: stok ? parseInt(stok, 10) : 1,
+                    lokasi: lokasi || 'Tidak Diketahui',
+                    foto_barang: foto_barang || existingItem.foto_barang,
+                    deposit: depositVal,
+                    is_active: true // Aktifkan kembali jika sebelumnya ter-delete
+                }
+            });
+        } else {
+            savedItem = await prisma.items.create({
+                data: {
+                    nama_barang,
+                    deskripsi,
+                    harga_sewa_per_hari: parseInt(harga_sewa_per_hari, 10),
+                    stok: stok ? parseInt(stok, 10) : 1,
+                    pemilik_id,
+                    lokasi: lokasi || 'Tidak Diketahui',
+                    foto_barang,
+                    deposit: depositVal
+                }
+            });
+        }
+
+        res.status(existingItem ? 200 : 201).json({ 
+            success: true, 
+            message: existingItem ? 'Barang berhasil diperbarui!' : 'Barang berhasil ditambahkan!', 
+            data: savedItem 
+        });
     } catch (error) {
         console.error(error);
         res.status(500).json({ success: false, message: 'Terjadi kesalahan pada server' });

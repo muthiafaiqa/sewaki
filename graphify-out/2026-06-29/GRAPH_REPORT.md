@@ -1,16 +1,16 @@
-# Graph Report - sewaki-monolith  (2026-06-28)
+# Graph Report - sewaki-monolith  (2026-06-29)
 
 ## Corpus Check
-- 51 files · ~23,167 words
+- 52 files · ~23,511 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 366 nodes · 391 edges · 30 communities (21 shown, 9 thin omitted)
+- 376 nodes · 400 edges · 30 communities (21 shown, 9 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `a2361907`
+- Built from commit: `58b86873`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -75,8 +75,8 @@
 ## Communities (30 total, 9 thin omitted)
 
 ### Community 0 - "Core Business Operations"
-Cohesion: 0.07
-Nodes (25): bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma, router (+17 more)
+Cohesion: 0.06
+Nodes (26): resolveDispute(), bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma (+18 more)
 
 ### Community 1 - "Inventory and Transactions"
 Cohesion: 0.08
@@ -84,23 +84,23 @@ Nodes (18): { createClient }, path, prisma, { reduceStock, restoreStock }, supab
 
 ### Community 2 - "Server Architecture and Routing"
 Cohesion: 0.10
-Nodes (17): prisma, chatController, express, router, adminRoutes, app, authRoutes, chatRoutes (+9 more)
+Nodes (18): app, http, io, prisma, { Server }, adminRoutes, app, authRoutes (+10 more)
 
 ### Community 3 - "Database Setup and Connectivity"
-Cohesion: 0.09
-Nodes (15): adapter, { Pool }, prisma, { PrismaClient }, { PrismaPg }, prisma, path, prisma (+7 more)
+Cohesion: 0.08
+Nodes (14): prisma, chatController, express, router, adapter, { Pool }, prisma, { PrismaClient } (+6 more)
 
 ### Community 4 - "Project Configuration and Scripts"
 Cohesion: 0.06
 Nodes (31): author, dependencies, axios, bcrypt, cors, dotenv, express, jsonwebtoken (+23 more)
 
 ### Community 5 - "KYC Verification and Authentication"
-Cohesion: 0.12
-Nodes (10): authController, express, kycController, multer, path, router, storage, upload (+2 more)
+Cohesion: 0.10
+Nodes (14): authController, express, kycController, multer, path, router, storage, upload (+6 more)
 
 ### Community 6 - "Route Security Middleware"
-Cohesion: 0.10
-Nodes (14): jwt, express, paymentController, router, verifyToken, express, multer, path (+6 more)
+Cohesion: 0.07
+Nodes (15): prisma, adminController, express, router, verifyToken, prisma, dashboardController, express (+7 more)
 
 ### Community 7 - "Item Catalog and Reviews Routing"
 Cohesion: 0.15
@@ -124,11 +124,11 @@ Nodes (37): 1. AWS Managed Services SLA (Dokumen PDF Resmi) {#aws-managed-servic
 
 ### Community 12 - "Admin Financial Operations"
 Cohesion: 0.20
-Nodes (6): prisma, resolveDispute(), adminController, express, router, verifyToken
+Nodes (9): express, multer, path, returnController, router, storage, transactionController, upload (+1 more)
 
 ### Community 13 - "Dashboard Statistics"
-Cohesion: 0.25
-Nodes (5): prisma, dashboardController, express, router, verifyToken
+Cohesion: 0.40
+Nodes (3): { createClient }, dotenv, supabase
 
 ### Community 14 - "Chat History Module"
 Cohesion: 0.11
@@ -155,24 +155,24 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ## Knowledge Gaps
-- **237 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+232 more)
+- **244 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+239 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `disbursePayment()` connect `Core Business Operations` to `Admin Financial Operations`?**
-  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **Why does `restoreStock()` connect `Inventory and Transactions` to `Core Business Operations`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _238 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _245 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
-  _Cohesion score 0.06606606606606606 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06401137980085349 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**
   _Cohesion score 0.07765151515151515 - nodes in this community are weakly interconnected._
 - **Should `Server Architecture and Routing` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.1 - nodes in this community are weakly interconnected._
 - **Should `Database Setup and Connectivity` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.08333333333333333 - nodes in this community are weakly interconnected._
+- **Should `Project Configuration and Scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.0625 - nodes in this community are weakly interconnected._
