@@ -354,34 +354,54 @@
       "norm_label": "prisma.config.ts"
     },
     {
-      "label": "find-admin.js",
+      "label": "check-rls.js",
       "file_type": "code",
-      "source_file": "scratch/find-admin.js",
+      "source_file": "scratch/check-rls.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scratch_find_admin",
+      "id": "scratch_check_rls",
       "community": 33,
-      "norm_label": "find-admin.js"
+      "norm_label": "check-rls.js"
     },
     {
       "label": "{ Pool }",
       "file_type": "code",
-      "source_file": "scratch/find-admin.js",
+      "source_file": "scratch/check-rls.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "scratch_find_admin_pool",
+      "id": "scratch_check_rls_pool",
       "community": 33,
       "norm_label": "{ pool }"
     },
     {
       "label": "check()",
       "file_type": "code",
-      "source_file": "scratch/find-admin.js",
+      "source_file": "scratch/check-rls.js",
       "source_location": "L6",
       "_origin": "ast",
-      "id": "scratch_find_admin_check",
+      "id": "scratch_check_rls_check",
       "community": 33,
       "norm_label": "check()"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "scratch/package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_package",
+      "community": 35,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "scratch/package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "scratch_package_type",
+      "community": 35,
+      "norm_label": "type"
     },
     {
       "label": "test-db.js",
@@ -412,6 +432,16 @@
       "id": "scratch_test_db_testconnection",
       "community": 3,
       "norm_label": "testconnection()"
+    },
+    {
+      "label": "test-esm.js",
+      "file_type": "code",
+      "source_file": "scratch/test-esm.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "scratch_test_esm",
+      "community": 37,
+      "norm_label": "test-esm.js"
     },
     {
       "label": "test-notification-api.js",
@@ -4130,9 +4160,9 @@
       "source_file": "package.json",
       "source_location": "L11",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_scripts",
-      "target": "package_scripts_seed"
+      "target": "package_scripts_seed",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4300,9 +4330,9 @@
       "source_file": "package.json",
       "source_location": "L34",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "package_devdependencies",
-      "target": "package_devdependencies_faker_js_faker"
+      "target": "package_devdependencies_faker_js_faker",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4327,21 +4357,31 @@
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scratch/find-admin.js",
+      "source_file": "scratch/check-rls.js",
       "source_location": "L6",
       "weight": 1.0,
-      "source": "scratch_find_admin",
-      "target": "scratch_find_admin_check",
+      "source": "scratch_check_rls",
+      "target": "scratch_check_rls_check",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
-      "source_file": "scratch/find-admin.js",
+      "source_file": "scratch/check-rls.js",
       "source_location": "L4",
       "weight": 1.0,
-      "source": "scratch_find_admin",
-      "target": "scratch_find_admin_pool",
+      "source": "scratch_check_rls",
+      "target": "scratch_check_rls_pool",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "scratch/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "scratch_package",
+      "target": "scratch_package_type",
       "confidence_score": 1.0
     },
     {
@@ -4553,9 +4593,9 @@
       "source_file": "scripts/package.json",
       "source_location": "L2",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_package",
-      "target": "scripts_package_type"
+      "target": "scripts_package_type",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4563,9 +4603,9 @@
       "source_file": "scripts/seed.js",
       "source_location": "L20",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_seed",
-      "target": "scripts_seed_main"
+      "target": "scripts_seed_main",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -4573,9 +4613,9 @@
       "source_file": "scripts/seed.js",
       "source_location": "L18",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "scripts_seed",
-      "target": "scripts_seed_supabase"
+      "target": "scripts_seed_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",
@@ -8036,9 +8076,9 @@
       "source_file": "issue.md",
       "source_location": "L1",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue",
-      "target": "issue_task_generate_100_dummy_data_using_faker_js_supabase"
+      "target": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8046,9 +8086,9 @@
       "source_file": "issue.md",
       "source_location": "L46",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_important_rules"
+      "target": "issue_important_rules",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8056,9 +8096,9 @@
       "source_file": "issue.md",
       "source_location": "L3",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_1_read_schema"
+      "target": "issue_step_1_read_schema",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8066,9 +8106,9 @@
       "source_file": "issue.md",
       "source_location": "L7",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_2_plan"
+      "target": "issue_step_2_plan",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8076,9 +8116,9 @@
       "source_file": "issue.md",
       "source_location": "L14",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_3_install_dependencies"
+      "target": "issue_step_3_install_dependencies",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8086,9 +8126,9 @@
       "source_file": "issue.md",
       "source_location": "L22",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_5_write_the_seed_script"
+      "target": "issue_step_5_write_the_seed_script",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8096,9 +8136,9 @@
       "source_file": "issue.md",
       "source_location": "L34",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_6_add_script_to_package_json"
+      "target": "issue_step_6_add_script_to_package_json",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -8106,9 +8146,9 @@
       "source_file": "issue.md",
       "source_location": "L40",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "issue_task_generate_100_dummy_data_using_faker_js_supabase",
-      "target": "issue_step_7_run_verify"
+      "target": "issue_step_7_run_verify",
+      "confidence_score": 1.0
     },
     {
       "relation": "references",

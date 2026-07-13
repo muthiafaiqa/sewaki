@@ -1,11 +1,11 @@
-# Graph Report - sewaki-monolith  (2026-07-13)
+# Graph Report - sewaki-monolith  (2026-06-30)
 
 ## Corpus Check
-- 56 files · ~25,873 words
+- 58 files · ~25,333 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 395 nodes · 415 edges · 36 communities (24 shown, 12 thin omitted)
+- 398 nodes · 416 edges · 38 communities (25 shown, 13 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -49,6 +49,7 @@
 - [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
+- [[_COMMUNITY_Community 35|Community 35]]
 - [[_COMMUNITY_Community 36|Community 36]]
 
 ## God Nodes (most connected - your core abstractions)
@@ -78,7 +79,7 @@
 ## Import Cycles
 - None detected.
 
-## Communities (36 total, 12 thin omitted)
+## Communities (38 total, 13 thin omitted)
 
 ### Community 0 - "Core Business Operations"
 Cohesion: 0.07
@@ -173,9 +174,9 @@ Cohesion: 0.25
 Nodes (5): prisma, dashboardController, express, router, verifyToken
 
 ## Knowledge Gaps
-- **256 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+251 more)
+- **257 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+252 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **13 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
@@ -185,7 +186,7 @@ _Questions this graph is uniquely positioned to answer:_
 - **Why does `dependencies` connect `Admin Financial Operations` to `Project Configuration and Scripts`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _257 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _258 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
   _Cohesion score 0.06606606606606606 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**

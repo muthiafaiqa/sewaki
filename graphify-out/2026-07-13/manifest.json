@@ -265,18 +265,13 @@
     "semantic_hash": ""
   },
   "scripts/seed.js": {
-    "mtime": 1783950689.347091,
-    "ast_hash": "330fbfa15f68fb7410c7b67151290666",
+    "mtime": 1782755010.3428226,
+    "ast_hash": "5fc27775ec9ef525315b09c97f166331",
     "semantic_hash": ""
   },
   "issue.md": {
     "mtime": 1782753218.6592114,
     "ast_hash": "feab4862a4a382d92f0927ce859afb84",
-    "semantic_hash": ""
-  },
-  "scratch/find-admin.js": {
-    "mtime": 1782755390.0172968,
-    "ast_hash": "3134ce8c2155baed21056b479d1fe58e",
     "semantic_hash": ""
   }
 }

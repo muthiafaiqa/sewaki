@@ -1,11 +1,11 @@
-# Graph Report - sewaki-monolith  (2026-07-13)
+# Graph Report - sewaki-monolith  (2026-06-30)
 
 ## Corpus Check
-- 56 files · ~25,873 words
+- 55 files · ~25,348 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 395 nodes · 415 edges · 36 communities (24 shown, 12 thin omitted)
+- 392 nodes · 413 edges · 35 communities (24 shown, 11 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
@@ -47,7 +47,6 @@
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
 - [[_COMMUNITY_Community 32|Community 32]]
-- [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 36|Community 36]]
 
@@ -78,11 +77,11 @@
 ## Import Cycles
 - None detected.
 
-## Communities (36 total, 12 thin omitted)
+## Communities (35 total, 11 thin omitted)
 
 ### Community 0 - "Core Business Operations"
-Cohesion: 0.07
-Nodes (25): bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma, router (+17 more)
+Cohesion: 0.06
+Nodes (26): resolveDispute(), bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma (+18 more)
 
 ### Community 1 - "Inventory and Transactions"
 Cohesion: 0.08
@@ -161,8 +160,8 @@ Cohesion: 0.50
 Nodes (3): For --cluster-only, For --update (incremental re-extraction), graphify reference: incremental update and cluster-only
 
 ### Community 24 - "Community 24"
-Cohesion: 0.20
-Nodes (6): prisma, resolveDispute(), adminController, express, router, verifyToken
+Cohesion: 0.22
+Nodes (5): prisma, adminController, express, router, verifyToken
 
 ### Community 31 - "Community 31"
 Cohesion: 0.22
@@ -173,24 +172,24 @@ Cohesion: 0.25
 Nodes (5): prisma, dashboardController, express, router, verifyToken
 
 ## Knowledge Gaps
-- **256 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+251 more)
+- **255 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+250 more)
   These have ≤1 connection - possible missing edges or undocumented components.
-- **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **11 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `disbursePayment()` connect `Core Business Operations` to `Community 24`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **Why does `dependencies` connect `Admin Financial Operations` to `Project Configuration and Scripts`?**
   _High betweenness centrality (0.005) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _257 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _256 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
-  _Cohesion score 0.06606606606606606 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06401137980085349 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**
   _Cohesion score 0.07765151515151515 - nodes in this community are weakly interconnected._
 - **Should `Server Architecture and Routing` be split into smaller, more focused modules?**
   _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
 - **Should `Database Setup and Connectivity` be split into smaller, more focused modules?**
   _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+- **Should `Project Configuration and Scripts` be split into smaller, more focused modules?**
+  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._

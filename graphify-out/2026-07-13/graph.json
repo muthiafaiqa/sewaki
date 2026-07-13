@@ -354,36 +354,6 @@
       "norm_label": "prisma.config.ts"
     },
     {
-      "label": "find-admin.js",
-      "file_type": "code",
-      "source_file": "scratch/find-admin.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scratch_find_admin",
-      "community": 33,
-      "norm_label": "find-admin.js"
-    },
-    {
-      "label": "{ Pool }",
-      "file_type": "code",
-      "source_file": "scratch/find-admin.js",
-      "source_location": "L1",
-      "_origin": "ast",
-      "id": "scratch_find_admin_pool",
-      "community": 33,
-      "norm_label": "{ pool }"
-    },
-    {
-      "label": "check()",
-      "file_type": "code",
-      "source_file": "scratch/find-admin.js",
-      "source_location": "L6",
-      "_origin": "ast",
-      "id": "scratch_find_admin_check",
-      "community": 33,
-      "norm_label": "check()"
-    },
-    {
       "label": "test-db.js",
       "file_type": "code",
       "source_file": "scratch/test-db.js",
@@ -910,7 +880,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "admin_admin_controller_resolvedispute",
-      "community": 24,
+      "community": 0,
       "norm_label": "resolvedispute()"
     },
     {
@@ -4323,26 +4293,6 @@
       "confidence_score": 1.0,
       "source": "package_devdependencies",
       "target": "package_devdependencies_prisma"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/find-admin.js",
-      "source_location": "L6",
-      "weight": 1.0,
-      "source": "scratch_find_admin",
-      "target": "scratch_find_admin_check",
-      "confidence_score": 1.0
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "scratch/find-admin.js",
-      "source_location": "L4",
-      "weight": 1.0,
-      "source": "scratch_find_admin",
-      "target": "scratch_find_admin_pool",
-      "confidence_score": 1.0
     },
     {
       "relation": "imports_from",

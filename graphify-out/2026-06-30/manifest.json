@@ -259,24 +259,34 @@
     "ast_hash": "124a61e59158fa81e16f069204249c77",
     "semantic_hash": ""
   },
+  "scratch/check-rls.js": {
+    "mtime": 1782754030.9622128,
+    "ast_hash": "8a70b8be8d04fa225c94694227c37ee4",
+    "semantic_hash": ""
+  },
+  "scratch/package.json": {
+    "mtime": 1782754062.5492804,
+    "ast_hash": "d0707362e90f00edd12435e9d3b9d71c",
+    "semantic_hash": ""
+  },
+  "scratch/test-esm.js": {
+    "mtime": 1782754044.859175,
+    "ast_hash": "71cbcb29cde04b725ea2546f7e0d18ef",
+    "semantic_hash": ""
+  },
   "scripts/package.json": {
     "mtime": 1782754090.8582816,
     "ast_hash": "d0707362e90f00edd12435e9d3b9d71c",
     "semantic_hash": ""
   },
   "scripts/seed.js": {
-    "mtime": 1783950689.347091,
-    "ast_hash": "330fbfa15f68fb7410c7b67151290666",
+    "mtime": 1782754148.6441467,
+    "ast_hash": "0281daf4d9cc2182d5e3e2cf640446d0",
     "semantic_hash": ""
   },
   "issue.md": {
     "mtime": 1782753218.6592114,
     "ast_hash": "feab4862a4a382d92f0927ce859afb84",
-    "semantic_hash": ""
-  },
-  "scratch/find-admin.js": {
-    "mtime": 1782755390.0172968,
-    "ast_hash": "3134ce8c2155baed21056b479d1fe58e",
     "semantic_hash": ""
   }
 }
