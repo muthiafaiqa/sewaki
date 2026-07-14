@@ -142,17 +142,18 @@ exports.getItemById = async (req, res) => {
                     id: true,
                     nama: true,
                     email: true,
-                    role: true
+                    role: true,
+                    nomor_hp: true
                 }
             });
         }
 
-        // Pasang data Pemilik dengan dummy nomor_hp untuk testing
+        // Gunakan nomor_hp dari database pemilik (atau fallback ke dummy jika tidak ada)
         const responseData = {
             ...item,
             Pemilik: pemilik ? {
                 ...pemilik,
-                nomor_hp: '081234567890'
+                nomor_hp: pemilik.nomor_hp || '081234567890'
             } : null
         };
 
