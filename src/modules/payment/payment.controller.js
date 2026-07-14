@@ -41,8 +41,36 @@ exports.webhook = async (req, res) => {
     try {
         const { external_id, status } = req.body;
 
+        console.log('--- Incoming Xendit Webhook ---');
+        console.log('Payload:', JSON.stringify(req.body, null, 2));
+
+        // 1. Validasi keberadaan external_id
+        if (!external_id) {
+            console.error('Webhook Error: external_id tidak ditemukan dalam payload');
+            return res.status(400).json({ success: false, message: 'Missing external_id in payload' });
+        }
+
+        // 2. Validasi format UUID untuk external_id agar tidak menyebabkan error pada query Prisma/PostgreSQL
+        const uuidRegex = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+        if (!uuidRegex.test(external_id)) {
+            console.error(`Webhook Error: Format external_id (${external_id}) bukan UUID yang valid`);
+            return res.status(400).json({ success: false, message: 'Invalid transaction ID format' });
+        }
+
+        // 3. Hanya update status jika status pembayaran adalah PAID
         if (status === 'PAID') {
             try {
+                // Periksa apakah transaksi ada di database
+                const transaction = await prisma.transactions.findUnique({
+                    where: { id: external_id }
+                });
+
+                if (!transaction) {
+                    console.error(`Webhook Error: Transaksi dengan ID ${external_id} tidak ditemukan di database`);
+                    return res.status(404).json({ success: false, message: 'Transaction not found' });
+                }
+
+                // Update status transaksi menjadi 'dibayar'
                 const updatedTransaction = await prisma.transactions.update({
                     where: { id: external_id },
                     data: {
@@ -53,6 +81,9 @@ exports.webhook = async (req, res) => {
                     }
                 });
 
+                console.log(`Webhook Success: Transaksi ${external_id} berhasil diupdate ke status 'dibayar'`);
+
+                // Kirim notifikasi ke pemilik barang
                 if (updatedTransaction && updatedTransaction.item) {
                     await prisma.notifications.create({
                         data: {
@@ -61,11 +92,14 @@ exports.webhook = async (req, res) => {
                             message: 'Pesanan baru telah dibayar. Segera siapkan barang untuk penyerahan.'
                         }
                     });
+                    console.log(`Notification created for owner ID: ${updatedTransaction.item.pemilik_id}`);
                 }
             } catch (err) {
-                console.error('Error updating transaction (invalid ID format):', err.message);
-                return res.status(400).json({ success: false, message: "Invalid transaction ID format" });
+                console.error('Error saat memproses update transaksi di webhook:', err.message);
+                return res.status(500).json({ success: false, message: 'Internal server error' });
             }
+        } else {
+            console.log(`Webhook Received: Status pembayaran adalah '${status}' (bukan 'PAID'), tidak ada perubahan status transaksi.`);
         }
 
         return res.status(200).send('OK');
