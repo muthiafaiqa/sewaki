@@ -113,7 +113,8 @@ exports.getAllTransactions = async (req, res) => {
     try {
         const transactions = await prisma.transactions.findMany({
             include: {
-                item: true
+                item: true,
+                penyewa: true
             }
         });
         res.status(200).json({ success: true, data: transactions });
@@ -281,7 +282,8 @@ exports.getTransactionById = async (req, res) => {
         let transaction = await prisma.transactions.findUnique({
             where: { id },
             include: {
-                item: true
+                item: true,
+                penyewa: true
             }
         });
 

@@ -60,6 +60,7 @@ model transactions {
   createdAt             DateTime @default(now()) @db.Timestamptz(6)
   updatedAt             DateTime @updatedAt @db.Timestamptz(6)
   item                  items    @relation(fields: [item_id], references: [id])
+  penyewa               users    @relation(fields: [penyewa_id], references: [id])
   bank_deposit          String?
   rekening_deposit      String?
   nama_rekening_deposit String?
@@ -80,6 +81,7 @@ model users {
   nomor_hp       String?                @db.VarChar(255)
   createdAt      DateTime               @default(now()) @db.Timestamptz(6)
   updatedAt      DateTime               @updatedAt @db.Timestamptz(6)
+  transactions   transactions[]
 }
 
 enum enum_users_role {
