@@ -1,7 +1,7 @@
 # Graph Report - sewaki-monolith  (2026-07-14)
 
 ## Corpus Check
-- 56 files · ~26,098 words
+- 56 files · ~26,106 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary

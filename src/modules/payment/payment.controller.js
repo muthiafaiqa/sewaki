@@ -120,16 +120,21 @@ exports.disburse = async (req, res) => {
             return res.status(400).json({ success: false, message: 'Data rekening tujuan tidak lengkap!' });
         }
 
+        const parsedJumlahUang = parseInt(jumlah_uang, 10) || 0;
+        // Hitung biaya platform (10% dari jumlah_uang)
+        const biayaPlatform = Math.round(parsedJumlahUang * 0.10);
+        const jumlahDiterima = parsedJumlahUang - biayaPlatform;
+
         const secretKeyWithColon = secret + ':';
         const base64Key = Buffer.from(secretKeyWithColon).toString('base64');
 
         const response = await axios.post('https://api.xendit.co/disbursements', {
             external_id: `disb-${id_transaksi}-${Date.now()}`,
-            amount: jumlah_uang,
+            amount: jumlahDiterima,
             bank_code: kode_bank,
             account_holder_name: nama_pemilik_rekening,
             account_number: nomor_rekening,
-            description: deskripsi
+            description: deskripsi || `Pencairan dana (setelah dipotong biaya platform 10%)`
         }, {
             headers: {
                 'Authorization': `Basic ${base64Key}`,
@@ -143,7 +148,7 @@ exports.disburse = async (req, res) => {
                 await sendEmail({
                     email_tujuan: email_user,
                     judul: '💸 Transaksi Berhasil Dicairkan - SewaKi\'',
-                    isi_pesan: `Halo ${nama_pemilik_rekening},\n\nDana sebesar Rp ${jumlah_uang} telah berhasil ditransfer oleh sistem SewaKi' ke rekening ${kode_bank} (${nomor_rekening}).\n\nKeterangan: ${deskripsi || 'Pencairan dana otomatis SewaKi'}.\n\nTerima kasih telah mempercayai SewaKi'!`
+                    isi_pesan: `Halo ${nama_pemilik_rekening},\n\nDana sebesar Rp ${jumlahDiterima} (setelah dipotong biaya platform 10% sebesar Rp ${biayaPlatform} dari total Rp ${parsedJumlahUang}) telah berhasil ditransfer oleh sistem SewaKi' ke rekening ${kode_bank} (${nomor_rekening}).\n\nKeterangan: ${deskripsi || 'Pencairan dana otomatis SewaKi'}.\n\nTerima kasih telah mempercayai SewaKi'!`
                 });
                 console.log(`📡 Email disbursement berhasil dikirim ke: ${email_user}`);
             } catch (emailErr) {
@@ -154,6 +159,8 @@ exports.disburse = async (req, res) => {
         res.status(200).json({
             success: true,
             message: 'Yeay! Permintaan pencairan dana berhasil dikirim ke Xendit!',
+            biaya_platform: biayaPlatform,
+            jumlah_diterima: jumlahDiterima,
             data_xendit: response.data
         });
 
