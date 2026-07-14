@@ -21,7 +21,7 @@ app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 // ==============================
 // MIDDLEWARE GLOBAL
 // ==============================
-const frontendUrl = process.env.FRONTEND_URL || 'https://sewa-sewaki.up.railway.app';
+const frontendUrl = process.env.FRONTEND_URL || 'https://sewaki-frontend-production.up.railway.app';
 app.use(cors({ origin: frontendUrl, credentials: true }));
 app.use(express.json());
 
