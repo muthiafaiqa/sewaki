@@ -60,8 +60,8 @@
     "semantic_hash": ""
   },
   "src/modules/auth/auth.controller.js": {
-    "mtime": 1782657742.0977383,
-    "ast_hash": "a6a5e1fb2a7b6bf2569449acbfa847c5",
+    "mtime": 1784085724.681988,
+    "ast_hash": "9c44f263f6c8feda29c43e326020f530",
     "semantic_hash": ""
   },
   "src/modules/auth/auth.routes.js": {

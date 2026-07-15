@@ -1,16 +1,16 @@
-# Graph Report - sewaki-monolith  (2026-07-14)
+# Graph Report - sewaki-monolith  (2026-07-15)
 
 ## Corpus Check
-- 56 files · ~26,156 words
+- 56 files · ~26,236 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 395 nodes · 415 edges · 36 communities (24 shown, 12 thin omitted)
+- 396 nodes · 419 edges · 34 communities (22 shown, 12 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.81)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `d44d4b4e`
+- Built from commit: `e1226b5a`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -27,7 +27,6 @@
 - [[_COMMUNITY_System Documentation and Overview|System Documentation and Overview]]
 - [[_COMMUNITY_Review Module|Review Module]]
 - [[_COMMUNITY_Community 11|Community 11]]
-- [[_COMMUNITY_Admin Financial Operations|Admin Financial Operations]]
 - [[_COMMUNITY_Dashboard Statistics|Dashboard Statistics]]
 - [[_COMMUNITY_Chat History Module|Chat History Module]]
 - [[_COMMUNITY_Scratchpad User Mocking|Scratchpad User Mocking]]
@@ -46,16 +45,15 @@
 - [[_COMMUNITY_Community 29|Community 29]]
 - [[_COMMUNITY_Community 30|Community 30]]
 - [[_COMMUNITY_Community 31|Community 31]]
-- [[_COMMUNITY_Community 32|Community 32]]
 - [[_COMMUNITY_Community 33|Community 33]]
 - [[_COMMUNITY_Community 34|Community 34]]
 - [[_COMMUNITY_Community 36|Community 36]]
 
 ## God Nodes (most connected - your core abstractions)
 1. `What You Must Do When Invoked` - 12 edges
-2. `/graphify` - 10 edges
-3. `SewaKi Modular Monolith Architecture` - 10 edges
-4. `sendEmail()` - 9 edges
+2. `sendEmail()` - 11 edges
+3. `/graphify` - 10 edges
+4. `SewaKi Modular Monolith Architecture` - 10 edges
 5. `graphify reference: extra exports and benchmark` - 8 edges
 6. `Endpoints API` - 8 edges
 7. `Task: Generate 100 Dummy Data using Faker.js → Supabase` - 8 edges
@@ -70,43 +68,43 @@
   src/modules/admin/admin.controller.js → src/modules/payment/payment.service.js
 - `register()` --calls--> `sendEmail()`  [EXTRACTED]
   src/modules/auth/auth.controller.js → src/modules/notification/notification.service.js
+- `verifyKyc()` --calls--> `sendEmail()`  [EXTRACTED]
+  src/modules/auth/kyc.controller.js → src/modules/notification/notification.service.js
 - `returnItem()` --calls--> `restoreStock()`  [EXTRACTED]
   src/modules/transaction/return.controller.js → src/modules/item/item.service.js
-- `getTransactionById()` --calls--> `restoreStock()`  [EXTRACTED]
-  src/modules/transaction/transaction.controller.js → src/modules/item/item.service.js
 
 ## Import Cycles
 - None detected.
 
-## Communities (36 total, 12 thin omitted)
+## Communities (34 total, 12 thin omitted)
 
 ### Community 0 - "Core Business Operations"
-Cohesion: 0.07
-Nodes (25): bcrypt, jwt, prisma, register(), { sendEmail }, express, prisma, router (+17 more)
+Cohesion: 0.06
+Nodes (27): bcrypt, jwt, prisma, register(), { sendEmail }, { createClient }, fs, path (+19 more)
 
 ### Community 1 - "Inventory and Transactions"
 Cohesion: 0.08
 Nodes (18): { createClient }, path, prisma, { reduceStock, restoreStock }, supabase, prisma, reduceStock(), restoreStock() (+10 more)
 
 ### Community 2 - "Server Architecture and Routing"
-Cohesion: 0.10
-Nodes (17): prisma, chatController, express, router, adminRoutes, app, authRoutes, chatRoutes (+9 more)
+Cohesion: 0.07
+Nodes (22): prisma, dashboardController, express, router, verifyToken, express, paymentController, router (+14 more)
 
 ### Community 3 - "Database Setup and Connectivity"
-Cohesion: 0.09
-Nodes (15): adapter, { Pool }, prisma, { PrismaClient }, { PrismaPg }, prisma, path, prisma (+7 more)
+Cohesion: 0.07
+Nodes (19): prisma, chatController, express, router, adapter, { Pool }, prisma, { PrismaClient } (+11 more)
 
 ### Community 4 - "Project Configuration and Scripts"
-Cohesion: 0.11
-Nodes (18): author, description, devDependencies, @faker-js/faker, nodemon, prisma, keywords, license (+10 more)
+Cohesion: 0.06
+Nodes (33): author, dependencies, axios, bcrypt, cors, dotenv, express, jsonwebtoken (+25 more)
 
 ### Community 5 - "KYC Verification and Authentication"
 Cohesion: 0.10
-Nodes (14): authController, express, kycController, multer, path, router, storage, upload (+6 more)
+Nodes (15): authController, express, kycController, multer, path, router, storage, upload (+7 more)
 
 ### Community 6 - "Route Security Middleware"
-Cohesion: 0.10
-Nodes (14): jwt, express, paymentController, router, verifyToken, express, multer, path (+6 more)
+Cohesion: 0.20
+Nodes (9): express, multer, path, returnController, router, storage, transactionController, upload (+1 more)
 
 ### Community 7 - "Item Catalog and Reviews Routing"
 Cohesion: 0.15
@@ -127,10 +125,6 @@ Nodes (5): prisma, express, reviewController, router, verifyToken
 ### Community 11 - "Community 11"
 Cohesion: 0.05
 Nodes (37): 1. AWS Managed Services SLA (Dokumen PDF Resmi) {#aws-managed-services-sla-dokumen-pdf-resmi}, 1. Studi Kasus NFR --- E-Commerce Real-World {#studi-kasus-nfr-e-commerce-real-world}, 2. Microsoft Azure SLA --- Dokumen Resmi (Consolidated SLA) {#microsoft-azure-sla-dokumen-resmi-consolidated-sla}, 2. Studi Kasus SLA --- Google Cloud GKE (Real Document) {#studi-kasus-sla-google-cloud-gke-real-document}, 3. Google Cloud Compute Engine SLA {#google-cloud-compute-engine-sla}, 4. Atlassian Cloud SLA --- Dokumen Legal Resmi {#atlassian-cloud-sla-dokumen-legal-resmi}, 5. Azure SQL Database SLA ---  {#azure-sql-database-sla}, 5. Ringkasan  {#ringkasan} (+29 more)
-
-### Community 12 - "Admin Financial Operations"
-Cohesion: 0.13
-Nodes (15): dependencies, axios, bcrypt, cors, dotenv, express, jsonwebtoken, multer (+7 more)
 
 ### Community 13 - "Dashboard Statistics"
 Cohesion: 0.40
@@ -168,29 +162,25 @@ Nodes (6): prisma, resolveDispute(), adminController, express, router, verifyTok
 Cohesion: 0.22
 Nodes (8): Important Rules, Step 1 - Read Schema, Step 2 - Plan, Step 3 - Install Dependencies, Step 5 - Write the Seed Script, Step 6 - Add Script to package.json, Step 7 - Run & Verify, Task: Generate 100 Dummy Data using Faker.js → Supabase
 
-### Community 32 - "Community 32"
-Cohesion: 0.25
-Nodes (5): prisma, dashboardController, express, router, verifyToken
-
 ## Knowledge Gaps
-- **256 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+251 more)
+- **257 isolated node(s):** `name`, `version`, `description`, `main`, `start` (+252 more)
   These have ≤1 connection - possible missing edges or undocumented components.
 - **12 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
+- **Why does `sendEmail()` connect `Core Business Operations` to `KYC Verification and Authentication`?**
+  _High betweenness centrality (0.013) - this node is a cross-community bridge._
 - **Why does `disbursePayment()` connect `Core Business Operations` to `Community 24`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
-- **Why does `dependencies` connect `Admin Financial Operations` to `Project Configuration and Scripts`?**
-  _High betweenness centrality (0.005) - this node is a cross-community bridge._
+  _High betweenness centrality (0.006) - this node is a cross-community bridge._
 - **What connects `name`, `version`, `description` to the rest of the system?**
-  _257 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _258 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Core Business Operations` be split into smaller, more focused modules?**
-  _Cohesion score 0.06606606606606606 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05647840531561462 - nodes in this community are weakly interconnected._
 - **Should `Inventory and Transactions` be split into smaller, more focused modules?**
   _Cohesion score 0.07765151515151515 - nodes in this community are weakly interconnected._
 - **Should `Server Architecture and Routing` be split into smaller, more focused modules?**
-  _Cohesion score 0.09523809523809523 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.07407407407407407 - nodes in this community are weakly interconnected._
 - **Should `Database Setup and Connectivity` be split into smaller, more focused modules?**
-  _Cohesion score 0.08695652173913043 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._

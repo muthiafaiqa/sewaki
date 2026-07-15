@@ -1027,7 +1027,7 @@
       "label": "login()",
       "file_type": "code",
       "source_file": "src/modules/auth/auth.controller.js",
-      "source_location": "L64",
+      "source_location": "L67",
       "_origin": "ast",
       "id": "auth_auth_controller_login",
       "community": 0,
@@ -1037,7 +1037,7 @@
       "label": "getProfile()",
       "file_type": "code",
       "source_file": "src/modules/auth/auth.controller.js",
-      "source_location": "L103",
+      "source_location": "L106",
       "_origin": "ast",
       "id": "auth_auth_controller_getprofile",
       "community": 0,
@@ -1047,7 +1047,7 @@
       "label": "updateLokasi()",
       "file_type": "code",
       "source_file": "src/modules/auth/auth.controller.js",
-      "source_location": "L125",
+      "source_location": "L128",
       "_origin": "ast",
       "id": "auth_auth_controller_updatelokasi",
       "community": 0,
@@ -5335,9 +5335,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "auth_kyc_controller_sendemail",
-      "confidence_score": 1.0
+      "target": "auth_kyc_controller_sendemail"
     },
     {
       "relation": "contains",
@@ -5387,9 +5387,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "notification_notification_service",
-      "confidence_score": 1.0
+      "target": "notification_notification_service"
     },
     {
       "relation": "imports",
@@ -5398,9 +5398,9 @@
       "source_file": "src/modules/auth/kyc.controller.js",
       "source_location": "L5",
       "weight": 1.0,
+      "confidence_score": 1.0,
       "source": "auth_kyc_controller",
-      "target": "notification_notification_service_sendemail",
-      "confidence_score": 1.0
+      "target": "notification_notification_service_sendemail"
     },
     {
       "relation": "calls",
@@ -8275,5 +8275,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "e1226b5abae825af29f675c94909ed4a98d4f3d8"
+  "built_at_commit": "bafd72552909804b54879a88a5623134cb0b1332"
 }
