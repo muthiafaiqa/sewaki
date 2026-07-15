@@ -164,10 +164,20 @@
       "norm_label": "dependencies"
     },
     {
-      "label": "@prisma/adapter-pg",
+      "label": "@emailjs/nodejs",
       "file_type": "code",
       "source_file": "package.json",
       "source_location": "L18",
+      "_origin": "ast",
+      "id": "package_dependencies_emailjs_nodejs",
+      "community": 4,
+      "norm_label": "@emailjs/nodejs"
+    },
+    {
+      "label": "@prisma/adapter-pg",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L19",
       "_origin": "ast",
       "id": "package_dependencies_prisma_adapter_pg",
       "community": 4,
@@ -177,7 +187,7 @@
       "label": "@prisma/client",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L19",
+      "source_location": "L20",
       "_origin": "ast",
       "id": "package_dependencies_prisma_client",
       "community": 4,
@@ -187,7 +197,7 @@
       "label": "@supabase/supabase-js",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L20",
+      "source_location": "L21",
       "_origin": "ast",
       "id": "package_dependencies_supabase_supabase_js",
       "community": 4,
@@ -197,7 +207,7 @@
       "label": "axios",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L22",
       "_origin": "ast",
       "id": "package_dependencies_axios",
       "community": 4,
@@ -207,7 +217,7 @@
       "label": "bcrypt",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L23",
       "_origin": "ast",
       "id": "package_dependencies_bcrypt",
       "community": 4,
@@ -217,7 +227,7 @@
       "label": "cors",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L24",
       "_origin": "ast",
       "id": "package_dependencies_cors",
       "community": 4,
@@ -227,7 +237,7 @@
       "label": "dotenv",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L25",
       "_origin": "ast",
       "id": "package_dependencies_dotenv",
       "community": 4,
@@ -237,7 +247,7 @@
       "label": "express",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L25",
+      "source_location": "L26",
       "_origin": "ast",
       "id": "package_dependencies_express",
       "community": 4,
@@ -247,7 +257,7 @@
       "label": "jsonwebtoken",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L26",
+      "source_location": "L27",
       "_origin": "ast",
       "id": "package_dependencies_jsonwebtoken",
       "community": 4,
@@ -257,7 +267,7 @@
       "label": "multer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L27",
+      "source_location": "L28",
       "_origin": "ast",
       "id": "package_dependencies_multer",
       "community": 4,
@@ -267,7 +277,7 @@
       "label": "nodemailer",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L28",
+      "source_location": "L29",
       "_origin": "ast",
       "id": "package_dependencies_nodemailer",
       "community": 4,
@@ -277,7 +287,7 @@
       "label": "pg",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L29",
+      "source_location": "L30",
       "_origin": "ast",
       "id": "package_dependencies_pg",
       "community": 4,
@@ -287,7 +297,7 @@
       "label": "socket.io",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L30",
+      "source_location": "L31",
       "_origin": "ast",
       "id": "package_dependencies_socket_io",
       "community": 4,
@@ -297,7 +307,7 @@
       "label": "xendit-node",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L31",
+      "source_location": "L32",
       "_origin": "ast",
       "id": "package_dependencies_xendit_node",
       "community": 4,
@@ -307,7 +317,7 @@
       "label": "devDependencies",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L33",
+      "source_location": "L34",
       "_origin": "ast",
       "id": "package_devdependencies",
       "community": 4,
@@ -317,7 +327,7 @@
       "label": "@faker-js/faker",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L34",
+      "source_location": "L35",
       "_origin": "ast",
       "id": "package_devdependencies_faker_js_faker",
       "community": 4,
@@ -327,7 +337,7 @@
       "label": "nodemon",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L35",
+      "source_location": "L36",
       "_origin": "ast",
       "id": "package_devdependencies_nodemon",
       "community": 4,
@@ -337,7 +347,7 @@
       "label": "prisma",
       "file_type": "code",
       "source_file": "package.json",
-      "source_location": "L36",
+      "source_location": "L37",
       "_origin": "ast",
       "id": "package_devdependencies_prisma",
       "community": 4,
@@ -910,7 +920,7 @@
       "source_location": "L75",
       "_origin": "ast",
       "id": "admin_admin_controller_resolvedispute",
-      "community": 0,
+      "community": 24,
       "norm_label": "resolvedispute()"
     },
     {
@@ -970,7 +980,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_auth_controller",
-      "community": 0,
+      "community": 5,
       "norm_label": "auth.controller.js"
     },
     {
@@ -980,7 +990,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "auth_auth_controller_bcrypt",
-      "community": 0,
+      "community": 5,
       "norm_label": "bcrypt"
     },
     {
@@ -990,7 +1000,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "auth_auth_controller_jwt",
-      "community": 0,
+      "community": 5,
       "norm_label": "jwt"
     },
     {
@@ -1000,7 +1010,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "auth_auth_controller_prisma",
-      "community": 0,
+      "community": 5,
       "norm_label": "prisma"
     },
     {
@@ -1010,7 +1020,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "auth_auth_controller_sendemail",
-      "community": 0,
+      "community": 5,
       "norm_label": "{ sendemail }"
     },
     {
@@ -1020,7 +1030,7 @@
       "source_location": "L10",
       "_origin": "ast",
       "id": "auth_auth_controller_register",
-      "community": 0,
+      "community": 5,
       "norm_label": "register()"
     },
     {
@@ -1030,7 +1040,7 @@
       "source_location": "L67",
       "_origin": "ast",
       "id": "auth_auth_controller_login",
-      "community": 0,
+      "community": 5,
       "norm_label": "login()"
     },
     {
@@ -1040,7 +1050,7 @@
       "source_location": "L106",
       "_origin": "ast",
       "id": "auth_auth_controller_getprofile",
-      "community": 0,
+      "community": 5,
       "norm_label": "getprofile()"
     },
     {
@@ -1050,7 +1060,7 @@
       "source_location": "L128",
       "_origin": "ast",
       "id": "auth_auth_controller_updatelokasi",
-      "community": 0,
+      "community": 5,
       "norm_label": "updatelokasi()"
     },
     {
@@ -1430,7 +1440,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "item_item_controller",
-      "community": 7,
+      "community": 1,
       "norm_label": "item.controller.js"
     },
     {
@@ -1440,7 +1450,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "item_item_controller_path",
-      "community": 7,
+      "community": 1,
       "norm_label": "path"
     },
     {
@@ -1450,7 +1460,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "item_item_controller_createclient",
-      "community": 7,
+      "community": 1,
       "norm_label": "{ createclient }"
     },
     {
@@ -1460,7 +1470,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "item_item_controller_prisma",
-      "community": 7,
+      "community": 1,
       "norm_label": "prisma"
     },
     {
@@ -1470,7 +1480,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "item_item_controller_reducestock_restorestock",
-      "community": 7,
+      "community": 1,
       "norm_label": "{ reducestock, restorestock }"
     },
     {
@@ -1480,7 +1490,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "item_item_controller_supabase",
-      "community": 7,
+      "community": 1,
       "norm_label": "supabase"
     },
     {
@@ -1490,7 +1500,7 @@
       "source_location": "L12",
       "_origin": "ast",
       "id": "item_item_controller_createitem",
-      "community": 7,
+      "community": 1,
       "norm_label": "createitem()"
     },
     {
@@ -1500,7 +1510,7 @@
       "source_location": "L107",
       "_origin": "ast",
       "id": "item_item_controller_getallitems",
-      "community": 7,
+      "community": 1,
       "norm_label": "getallitems()"
     },
     {
@@ -1510,7 +1520,7 @@
       "source_location": "L124",
       "_origin": "ast",
       "id": "item_item_controller_getitembyid",
-      "community": 7,
+      "community": 1,
       "norm_label": "getitembyid()"
     },
     {
@@ -1520,7 +1530,7 @@
       "source_location": "L168",
       "_origin": "ast",
       "id": "item_item_controller_reducestock",
-      "community": 7,
+      "community": 1,
       "norm_label": "reducestock()"
     },
     {
@@ -1530,7 +1540,7 @@
       "source_location": "L180",
       "_origin": "ast",
       "id": "item_item_controller_restorestock",
-      "community": 7,
+      "community": 1,
       "norm_label": "restorestock()"
     },
     {
@@ -1540,7 +1550,7 @@
       "source_location": "L192",
       "_origin": "ast",
       "id": "item_item_controller_deleteitem",
-      "community": 7,
+      "community": 1,
       "norm_label": "deleteitem()"
     },
     {
@@ -1550,7 +1560,7 @@
       "source_location": "L253",
       "_origin": "ast",
       "id": "item_item_controller_getbookeddates",
-      "community": 7,
+      "community": 1,
       "norm_label": "getbookeddates()"
     },
     {
@@ -1730,7 +1740,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "notification_notification_routes",
-      "community": 5,
+      "community": 0,
       "norm_label": "notification.routes.js"
     },
     {
@@ -1740,7 +1750,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "notification_notification_routes_express",
-      "community": 5,
+      "community": 0,
       "norm_label": "express"
     },
     {
@@ -1750,7 +1760,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "notification_notification_routes_router",
-      "community": 5,
+      "community": 0,
       "norm_label": "router"
     },
     {
@@ -1760,7 +1770,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "notification_notification_routes_sendemail",
-      "community": 5,
+      "community": 0,
       "norm_label": "{ sendemail }"
     },
     {
@@ -1770,7 +1780,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "notification_notification_routes_prisma",
-      "community": 5,
+      "community": 0,
       "norm_label": "prisma"
     },
     {
@@ -1780,7 +1790,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "notification_notification_routes_verifytoken",
-      "community": 5,
+      "community": 0,
       "norm_label": "verifytoken"
     },
     {
@@ -1794,50 +1804,30 @@
       "norm_label": "notification.service.js"
     },
     {
-      "label": "nodemailer",
+      "label": "emailjs",
       "file_type": "code",
       "source_file": "src/modules/notification/notification.service.js",
       "source_location": "L1",
       "_origin": "ast",
-      "id": "notification_notification_service_nodemailer",
+      "id": "notification_notification_service_emailjs",
       "community": 0,
-      "norm_label": "nodemailer"
+      "norm_label": "emailjs"
     },
     {
-      "label": "axios",
-      "file_type": "code",
-      "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L2",
-      "_origin": "ast",
-      "id": "notification_notification_service_axios",
-      "community": 0,
-      "norm_label": "axios"
-    },
-    {
-      "label": "maskPassword()",
+      "label": "kirimEmail()",
       "file_type": "code",
       "source_file": "src/modules/notification/notification.service.js",
       "source_location": "L10",
       "_origin": "ast",
-      "id": "notification_notification_service_maskpassword",
+      "id": "notification_notification_service_kirimemail",
       "community": 0,
-      "norm_label": "maskpassword()"
-    },
-    {
-      "label": "transporter",
-      "file_type": "code",
-      "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L23",
-      "_origin": "ast",
-      "id": "notification_notification_service_transporter",
-      "community": 0,
-      "norm_label": "transporter"
+      "norm_label": "kirimemail()"
     },
     {
       "label": "sendEmail()",
       "file_type": "code",
       "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L46",
+      "source_location": "L43",
       "_origin": "ast",
       "id": "notification_notification_service_sendemail",
       "community": 0,
@@ -1950,7 +1940,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payment_payment_routes",
-      "community": 2,
+      "community": 6,
       "norm_label": "payment.routes.js"
     },
     {
@@ -1960,7 +1950,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "payment_payment_routes_express",
-      "community": 2,
+      "community": 6,
       "norm_label": "express"
     },
     {
@@ -1970,7 +1960,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "payment_payment_routes_router",
-      "community": 2,
+      "community": 6,
       "norm_label": "router"
     },
     {
@@ -1980,7 +1970,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "payment_payment_routes_paymentcontroller",
-      "community": 2,
+      "community": 6,
       "norm_label": "paymentcontroller"
     },
     {
@@ -1990,7 +1980,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "payment_payment_routes_verifytoken",
-      "community": 2,
+      "community": 6,
       "norm_label": "verifytoken"
     },
     {
@@ -2130,7 +2120,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_return_controller",
-      "community": 1,
+      "community": 0,
       "norm_label": "return.controller.js"
     },
     {
@@ -2140,7 +2130,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_return_controller_prisma",
-      "community": 1,
+      "community": 0,
       "norm_label": "prisma"
     },
     {
@@ -2150,7 +2140,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "transaction_return_controller_restorestock",
-      "community": 1,
+      "community": 0,
       "norm_label": "{ restorestock }"
     },
     {
@@ -2160,7 +2150,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "transaction_return_controller_sendemail",
-      "community": 1,
+      "community": 0,
       "norm_label": "{ sendemail }"
     },
     {
@@ -2310,7 +2300,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes",
-      "community": 1,
+      "community": 6,
       "norm_label": "transaction.routes.js"
     },
     {
@@ -2320,7 +2310,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "transaction_transaction_routes_express",
-      "community": 1,
+      "community": 6,
       "norm_label": "express"
     },
     {
@@ -2330,7 +2320,7 @@
       "source_location": "L2",
       "_origin": "ast",
       "id": "transaction_transaction_routes_router",
-      "community": 1,
+      "community": 6,
       "norm_label": "router"
     },
     {
@@ -2340,7 +2330,7 @@
       "source_location": "L3",
       "_origin": "ast",
       "id": "transaction_transaction_routes_transactioncontroller",
-      "community": 1,
+      "community": 6,
       "norm_label": "transactioncontroller"
     },
     {
@@ -2350,7 +2340,7 @@
       "source_location": "L4",
       "_origin": "ast",
       "id": "transaction_transaction_routes_returncontroller",
-      "community": 1,
+      "community": 6,
       "norm_label": "returncontroller"
     },
     {
@@ -2360,7 +2350,7 @@
       "source_location": "L5",
       "_origin": "ast",
       "id": "transaction_transaction_routes_verifytoken",
-      "community": 1,
+      "community": 6,
       "norm_label": "verifytoken"
     },
     {
@@ -2370,7 +2360,7 @@
       "source_location": "L6",
       "_origin": "ast",
       "id": "transaction_transaction_routes_multer",
-      "community": 1,
+      "community": 6,
       "norm_label": "multer"
     },
     {
@@ -2380,7 +2370,7 @@
       "source_location": "L7",
       "_origin": "ast",
       "id": "transaction_transaction_routes_path",
-      "community": 1,
+      "community": 6,
       "norm_label": "path"
     },
     {
@@ -2390,7 +2380,7 @@
       "source_location": "L9",
       "_origin": "ast",
       "id": "transaction_transaction_routes_storage",
-      "community": 1,
+      "community": 6,
       "norm_label": "storage"
     },
     {
@@ -2400,7 +2390,7 @@
       "source_location": "L17",
       "_origin": "ast",
       "id": "transaction_transaction_routes_upload",
-      "community": 1,
+      "community": 6,
       "norm_label": "upload"
     },
     {
@@ -2500,7 +2490,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware",
-      "community": 5,
+      "community": 6,
       "norm_label": "authmiddleware.js"
     },
     {
@@ -2510,7 +2500,7 @@
       "source_location": "L1",
       "_origin": "ast",
       "id": "middleware_authmiddleware_jwt",
-      "community": 5,
+      "community": 6,
       "norm_label": "jwt"
     },
     {
@@ -2520,7 +2510,7 @@
       "source_location": "L13",
       "_origin": "ast",
       "id": "middleware_authmiddleware_verifytoken",
-      "community": 5,
+      "community": 6,
       "norm_label": "verifytoken()"
     },
     {
@@ -2530,7 +2520,7 @@
       "source_location": "L34",
       "_origin": "ast",
       "id": "middleware_authmiddleware_verifyadmin",
-      "community": 5,
+      "community": 6,
       "norm_label": "verifyadmin()"
     },
     {
@@ -2540,7 +2530,7 @@
       "source_location": "L45",
       "_origin": "ast",
       "id": "middleware_authmiddleware_checkrole",
-      "community": 5,
+      "community": 6,
       "norm_label": "checkrole()"
     },
     {
@@ -4223,6 +4213,16 @@
       "confidence_score": 1.0,
       "source": "package_dependencies",
       "target": "package_dependencies_dotenv"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_emailjs_nodejs",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6154,31 +6154,21 @@
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L2",
+      "source_location": "L1",
       "weight": 1.0,
       "source": "notification_notification_service",
-      "target": "notification_notification_service_axios",
+      "target": "notification_notification_service_emailjs",
       "confidence_score": 1.0
     },
     {
       "relation": "contains",
       "confidence": "EXTRACTED",
       "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L8",
+      "source_location": "L10",
       "weight": 1.0,
-      "confidence_score": 1.0,
       "source": "notification_notification_service",
-      "target": "notification_notification_service_maskpassword"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L1",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "notification_notification_service",
-      "target": "notification_notification_service_nodemailer"
+      "target": "notification_notification_service_kirimemail",
+      "confidence_score": 1.0
     },
     {
       "relation": "contains",
@@ -6189,16 +6179,6 @@
       "confidence_score": 1.0,
       "source": "notification_notification_service",
       "target": "notification_notification_service_sendemail"
-    },
-    {
-      "relation": "contains",
-      "confidence": "EXTRACTED",
-      "source_file": "src/modules/notification/notification.service.js",
-      "source_location": "L5",
-      "weight": 1.0,
-      "confidence_score": 1.0,
-      "source": "notification_notification_service",
-      "target": "notification_notification_service_transporter"
     },
     {
       "relation": "imports_from",
@@ -6221,6 +6201,17 @@
       "confidence_score": 1.0,
       "source": "transaction_return_controller",
       "target": "notification_notification_service"
+    },
+    {
+      "relation": "calls",
+      "context": "call",
+      "confidence": "EXTRACTED",
+      "source_file": "src/modules/notification/notification.service.js",
+      "source_location": "L44",
+      "weight": 1.0,
+      "source": "notification_notification_service_sendemail",
+      "target": "notification_notification_service_kirimemail",
+      "confidence_score": 1.0
     },
     {
       "relation": "imports",
@@ -8315,5 +8306,5 @@
     }
   ],
   "hyperedges": [],
-  "built_at_commit": "4edd801b4db4edcf785ea40506de2510a16979bb"
+  "built_at_commit": "56ef853ec5461edd09f9771ceef3cafa6112d22a"
 }
