@@ -2,6 +2,7 @@ const prisma = require('../../shared/config/prisma');
 const fs = require('fs');
 const path = require('path');
 const { createClient } = require('@supabase/supabase-js');
+const { sendEmail } = require('../notification/notification.service');
 
 // Initialize Supabase Client
 const supabaseUrl = process.env.SUPABASE_URL;
@@ -122,7 +123,7 @@ exports.verifyKyc = async (req, res) => {
             }
         });
 
-        // Buat notifikasi baru untuk user
+        // Buat notifikasi baru untuk user di database
         await prisma.notifications.create({
             data: {
                 user_id: id,
@@ -132,6 +133,20 @@ exports.verifyKyc = async (req, res) => {
                     : 'Mohon maaf, verifikasi KTP Anda ditolak oleh admin. Silakan periksa kembali foto KTP Anda dan lakukan upload ulang.'
             }
         });
+
+        // Kirim email notifikasi jika status KYC/KTP terverifikasi
+        if (status === 'verified') {
+            try {
+                await sendEmail({
+                    email_tujuan: updatedUser.email,
+                    judul: 'Verifikasi KTP Berhasil - SewaKi',
+                    isi_pesan: `Halo ${updatedUser.nama},\n\nSelamat! Foto KTP Anda telah berhasil diverifikasi oleh Admin SewaKi.\n\nAkun Anda kini aktif dan siap digunakan untuk menyewa barang.\n\nTerima kasih,\nTim SewaKi`
+                });
+            } catch (emailError) {
+                console.error('❌ Gagal mengirim email notifikasi verifikasi KTP:', emailError.message);
+                // Biarkan proses utama tetap sukses meskipun email gagal/lambat
+            }
+        }
 
         res.status(200).json({
             success: true,
