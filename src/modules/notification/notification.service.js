@@ -1,13 +1,32 @@
 const nodemailer = require('nodemailer');
 require('dotenv').config();
 
-// Konfigurasi transporter Gmail (sekali dibuat, digunakan di seluruh aplikasi)
+// Validasi & Log Environment Variables secara aman (tanpa membocorkan kredensial)
+const emailUser = process.env.EMAIL_USER;
+const emailPass = process.env.EMAIL_PASS;
+
+const maskPassword = (pass) => {
+    if (!pass) return 'BELUM DIATUR';
+    const cleaned = pass.replace(/\s+/g, '');
+    if (cleaned.length < 4) return '***';
+    return `${cleaned.substring(0, 3)}***${cleaned.substring(cleaned.length - 3)} (Panjang: ${pass.length} karakter)`;
+};
+
+console.log(`📧 [Email Config] User: ${emailUser || 'BELUM DIATUR'}`);
+console.log(`📧 [Email Config] Pass: ${maskPassword(emailPass)}`);
+
+// Konfigurasi SMTP Transporter Eksplisit (Lebih stabil di Cloud Host seperti Railway)
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
+    host: 'smtp.gmail.com',
+    port: 465,
+    secure: true, // Menggunakan SSL langsung pada port 465
     auth: {
-        user: process.env.EMAIL_USER || 'sewaki.id@gmail.com',
-        pass: process.env.EMAIL_PASS || 'axefnepmzcaukize'
-    }
+        user: emailUser,
+        pass: emailPass
+    },
+    connectionTimeout: 10000, // Timeout koneksi 10 detik
+    greetingTimeout: 10000,   // Timeout sambutan SMTP 10 detik
+    socketTimeout: 15000      // Timeout soket aktif 15 detik
 });
 
 /**
